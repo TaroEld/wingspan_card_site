@@ -1,0 +1,15 @@
+.TierHeader
+{
+    width: 90%;
+    background-color: antiquewhite;
+    font-size: large;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+
+    font-weight: 500;
+}
+.TierList
+{
+    padding: 2px;
+}
