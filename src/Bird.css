@@ -1,0 +1,27 @@
+.BirdName
+{
+    display: inline-block;
+    color: black;
+    background-color: antiquewhite;
+    vertical-align: middle;
+}
+.teal
+{
+    background-color: teal;
+}
+
+.brown
+{
+    background-color: rgb(161, 97, 36);
+}
+
+.white
+{
+    background-color: white;
+    color: black;
+}
+
+.pink
+{
+    background-color: pink;
+}
