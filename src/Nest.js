@@ -1,25 +1,33 @@
 import './Nest.css'
 
-import bowl from "./assets/gfx/nest_bowl.png";
-import cavity from "./assets/gfx/nest_cavity.png";
-import ground from "./assets/gfx/nest_ground.png";
-import platform from "./assets/gfx/nest_platform.png";
-import wild from "./assets/gfx/nest_wild.png";
+import Bowl from "./assets/gfx/nest_bowl.png";
+import Cavity from "./assets/gfx/nest_cavity.png";
+import Ground from "./assets/gfx/nest_ground.png";
+import Platform from "./assets/gfx/nest_platform.png";
+import Star from "./assets/gfx/nest_wild.png";
 
-const nestImages = {
-    bowl : bowl,
-    cavity : cavity,
-    ground : ground,
-    platform : platform,
-    wild : wild,
+const NestTypes = {
+    Bowl : "Bowl",
+    Cavity : "Cavity",
+    Ground : "Ground",
+    Platform : "Platform",
+    Star : "Star",
 }
-export const Nest = (props) => {
+
+const NestImages = {
+    Bowl : Bowl,
+    Cavity : Cavity,
+    Ground : Ground,
+    Platform : Platform,
+    Star : Star,
+}
+const Nest = (props) => {
     return (
         <>
             <span className = "nestImg">
-                <img src={nestImages[props.Type]} alt={props.Type}/>
+                <img src={NestImages[props.Type]} alt={props.Type}/>
             </span>
         </>
     );
 }
-  
+export {Nest, NestTypes}
