@@ -1,0 +1,10 @@
+.foodContainer
+{
+    width: 5rem;
+    height: 2rem;
+    position: relative;
+    left: 5px;
+    background-color: rgb(182, 161, 136);
+    display:flex;
+    justify-content: center;
+}
