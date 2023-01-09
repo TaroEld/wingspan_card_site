@@ -1,0 +1,20 @@
+.vpContainer
+{
+    width: 4rem;
+    height: 4rem;
+    color:#2F2B19;
+    font-size: large;
+    font-weight: bold;
+    display:flex;
+}
+.vpContainer span{
+    color:#2F2B19;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.vpImg{
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
