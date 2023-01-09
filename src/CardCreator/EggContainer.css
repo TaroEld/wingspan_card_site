@@ -1,0 +1,5 @@
+.eggContainer{
+    width: 3rem;
+    display:flex;
+    flex-wrap: wrap;
+}
