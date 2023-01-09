@@ -1,0 +1,11 @@
+.text
+{
+    color:black;
+}
+.description img
+{
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    width: auto;
+    height: auto;
+}
