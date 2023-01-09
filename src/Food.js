@@ -7,6 +7,16 @@ import Seed from "./assets/gfx/food_seed.png";
 import Fruit from "./assets/gfx/food_cherry.png";
 import Fish from "./assets/gfx/food_fish.png";
 
+const FoodTypes = {
+    Invertebrate : "Invertebrate",
+    Wild : "Wild",
+    Rodent : "Rodent",
+    Nectar : "Nectar",
+    Seed : "Seed",
+    Fruit : "Fruit",
+    Fish : "Fish"
+}
+
 const foodImages = {
     Invertebrate : Invertebrate,
     Wild : Wild,
@@ -16,13 +26,13 @@ const foodImages = {
     Fruit : Fruit,
     Fish : Fish
 }
-export const Food = (props) => {
-    return (
-        <>
-            <span className = "foodImg">
-                <img src={foodImages[props.Type]} alt={props.Type}/>
-            </span>
-        </>
+const Food = (props) => {
+    // const size = props.Size ? "size-" + props.Size : "size-normal"
+     return (
+        <span className = "span">
+            <img className="img" src={foodImages[props.Type]} alt={props.Type}/>
+        </span>
     );
 }
-  
+
+export {Food, FoodTypes}
