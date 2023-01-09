@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import SideBar from './SideBar';
+import TierListScreen from './TierListScreen';
+import CardCreatorScreen from './CardCreatorScreen';
+import { useState } from 'react';
 
 function App() {
+  const contentStates = {
+    TierList : <TierListScreen/>,
+    CardCreator : <CardCreatorScreen/>
+  }
+  const [content, setContent] = useState(contentStates.CardCreator);
+  const onSideBarClicked = (_state) => {
+    setContent(contentStates[_state])
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SideBar className ="SideBar" parentCallback = {onSideBarClicked}/>
+      <div className="mainContent">
+        {content}
+      </div>
     </div>
   );
 }
