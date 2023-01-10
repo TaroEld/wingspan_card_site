@@ -21,3 +21,26 @@
     border: 1px solid red;   
     flex:1;
 }
+.cardSettingsContainer > *
+{
+    margin-top: 1rem;
+}
+
+.settingsOption 
+{
+    background: rgba(0,0,0,0.3);
+    width: fit-content;
+    padding: 1rem;
+}
+
+.settingsOption  .foodImg
+{
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+}
+.foodSelector
+{
+    cursor: pointer;
+    width:fit-content;
+}
