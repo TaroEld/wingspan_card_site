@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# About
+
+This is a WIP project to create a site dedicated to the boardgame Wingspan. 
+Among other features, it will include a Card Creator where users can create their own custom bird cards to share with other people.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
