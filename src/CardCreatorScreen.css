@@ -44,3 +44,12 @@
     cursor: pointer;
     width:fit-content;
 }
+.food-separator
+{
+    display: flex;
+    align-items: center;
+}
+.food-separator > *
+{
+    flex:1;
+}

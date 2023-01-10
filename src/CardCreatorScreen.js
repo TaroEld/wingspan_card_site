@@ -83,10 +83,15 @@ function CardCreatorScreen(props) {
                     </div>
                     <label>Current food (Click to remove)</label>
                     <div className="foodSelector" onClick={removeFood}>
-                        <FoodContainer foodArray = {food}/>
+                        <FoodContainer foodArray = {food} separator = {foodSeparator}/>
                     </div>
-                    <label htmlFor="food-separator">{foodSeparator === "/" ? 'Or ("/")' : 'And ("+")'}</label>
-                    <input id="food-separator" type="checkbox" className="test" onClick = {() =>{foodSeparator === "/" ? setFoodSeparator("+") : setFoodSeparator("/")}}/>
+                    <div className="food-separator">
+                        <label htmlFor="food-separator">{foodSeparator === "/" ? 'Or ("/")' : 'And ("+")'}</label>
+                        <input id="food-separator" type="checkbox" 
+                            style={{width:"1.5rem", height:"1.5rem"}}
+                            onClick = {() =>{foodSeparator === "/" ? setFoodSeparator("+") : setFoodSeparator("/")}}
+                        />
+                    </div>
                 </div>
                 <div className="settingsOption">
                     
