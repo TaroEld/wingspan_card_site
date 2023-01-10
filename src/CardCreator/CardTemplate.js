@@ -1,10 +1,12 @@
 import "./CardTemplate.css"
-import FoodContainer from './FoodContainer';
-import HabitatContainer from './HabitatContainer';
 import React from "react";
-import Description from "./Description";
+import HabitatContainer from './HabitatContainer';
+import FoodContainer from './FoodContainer';
+import DescriptionContainer from "./DescriptionContainer";
 import VPContainer from "./VPContainer";
 import EggContainer from "./EggContainer";
+import WingspanContainer from "./WingspanContainer";
+import { Nest } from "../Nest";
 
 function CardTemplate(props) {
     return (
@@ -14,11 +16,10 @@ function CardTemplate(props) {
             <span className="name">{props.name}</span>
             <VPContainer vpNum = {props.vpNum}/>
             <EggContainer eggNum = {props.eggNum}/>
-            <Description text= {props.description}/>
             <div className="imageContainer"></div>
-            <div className="wingspanContainer"></div>
-            <div className="effectContainer"></div>
-            <div className="nestContainer"></div> 
+            <Nest Type={props.nestType}/>
+            <WingspanContainer wingspanNum = {props.wingspanNum}/>
+            <DescriptionContainer descriptionText= {props.descriptionText} descriptionType={props.descriptionType} effectType={props.effectType} effectTag={props.effectTag}/>
         </div>
     );
 }

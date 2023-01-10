@@ -24,6 +24,20 @@
     margin-top: 1.5rem;
     margin-left: 0.5rem;
 }
+
+.wingspanContainer
+{
+    margin-top: 1.5rem;
+    margin-left: 0.5rem;
+    border: 1px solid red;
+}
+
+.descriptionContainer
+{
+    margin-top: 1.5rem;
+    margin-left: 0.5rem;
+}
+
 .name
 {
     position: absolute;
