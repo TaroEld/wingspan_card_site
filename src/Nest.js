@@ -1,5 +1,3 @@
-import './Nest.css'
-
 import Bowl from "./assets/gfx/nest_bowl.png";
 import Cavity from "./assets/gfx/nest_cavity.png";
 import Ground from "./assets/gfx/nest_ground.png";
@@ -22,12 +20,14 @@ const NestImages = {
     Star : Star,
 }
 const Nest = (props) => {
+    const style = {
+        width: "2rem",
+        height: "2rem"
+    }
     return (
-        <>
-            <span className = "nestImg">
-                <img src={NestImages[props.Type]} alt={props.Type}/>
-            </span>
-        </>
+        <div style={style}>
+            <img className="containImage" src={NestImages[props.Type]} alt={props.Type}/>
+        </div>
     );
 }
 export {Nest, NestTypes}

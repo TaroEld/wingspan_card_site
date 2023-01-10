@@ -1,4 +1,3 @@
-import './Food.css'
 import Invertebrate from "./assets/gfx/food_worm.png";
 import Wild from "./assets/gfx/food_wild.png";
 import Rodent from "./assets/gfx/food_mouse.png";
@@ -28,10 +27,14 @@ const foodImages = {
 }
 const Food = (props) => {
     // const size = props.Size ? "size-" + props.Size : "size-normal"
+    const style= {
+        width: "1rem",
+        height: "1rem"
+    }
      return (
-        <span className = "span">
-            <img className="img" src={foodImages[props.Type]} alt={props.Type}/>
-        </span>
+        <div style={style}>
+            <img className="containImage" src={foodImages[props.Type]} alt={props.Type}/>
+        </div>
     );
 }
 

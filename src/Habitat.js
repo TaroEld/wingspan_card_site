@@ -1,5 +1,4 @@
 import React from 'react';
-import "./Habitat.css"
 
 import forest from "./assets/gfx/land_forest.png";
 import grass from "./assets/gfx/land_grass.png";
@@ -11,10 +10,14 @@ const habitatImages = {
     Wet : wet,
 }
 function Habitat(props) {
+    const style={
+        width: "2rem",
+        height: "2rem"
+    }
     return (
-        <span className = "habitatImg">
-            <img src={habitatImages[props.Type]} alt={props.Type}/>
-        </span>
+        <div className="habitatImg" style={style}>
+            <img className="containImage" src={habitatImages[props.Type]} alt={props.Type}/>
+        </div>
     );
 }
 
