@@ -16,7 +16,7 @@ function FoodContainer(_food) {
         const ret = _food.foodArray.map((_foodType) => {
             const innerRet = []
             innerRet.push(<Food key = {idx++} style={style} Type={_foodType} Size = "small"/>)
-            innerRet.push(<span key = {idx++} style={{color: "black", fontWeight :"bold"}}>{separator}</span>)
+            innerRet.push(<span key = {idx++} >{separator}</span>)
             return innerRet;
         })
         // Remove last separator

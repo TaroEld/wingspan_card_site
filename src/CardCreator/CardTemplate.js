@@ -10,7 +10,7 @@ import NestContainer from "./NestContainer"
 
 function CardTemplate(props) {
     return (
-        <div className="cardTemplate">
+        <div className="cardTemplate genericTextColor">
             <HabitatContainer habitatArray = {props.habitat}/>
             <FoodContainer separator = {props.foodSeparator} foodArray = {props.food}/>
             <span className="name">{props.name}</span>
