@@ -22,17 +22,17 @@ const EffectTags = {
     Tuck :      "Tuck",
 } 
 
-const ImageKeyWordMap = {
+const EffectImageKeyWordMap = {
     "[Card]" : <Card/>,
     "[Egg]" : <Egg/>,
     "[Tuck]" : <img className="containImage" src={Tuck} alt={Tuck}/>,
     "[Predator]" : <img className="containImage" src={Predator} alt={Predator}/>,
 }
 for (const [key] of Object.entries(FoodTypes)){
-    ImageKeyWordMap[`[${key}]`] = <Food Type={key}/>
+    EffectImageKeyWordMap[`[${key}]`] = <Food Type={key}/>
 }
 for (const [key] of Object.entries(NestTypes)){
-    ImageKeyWordMap[`[${key}]`] = <Nest Type={key}/>
+    EffectImageKeyWordMap[`[${key}]`] = <Nest Type={key}/>
 }
 
 function Effect(props) {
@@ -51,7 +51,6 @@ function Effect(props) {
     const composeDescription = (_text) => {
         // This function goes over the text by splitting it into individual works based on spaces, then returns an array of either text spans, or image elements
         const textFragments = _text.split(" ");
-        console.log(props.tag)
         const ret = [
             prefixTagMap[props.tag],
             <span>{prefixTypeMap[props.type]}</span>
@@ -60,14 +59,14 @@ function Effect(props) {
         let subText = "";
         for(let i = 0; i < textFragments.length; i++)
         {
-            if (textFragments[i] in ImageKeyWordMap)
+            if (textFragments[i] in EffectImageKeyWordMap)
             {
                 if (subText !== "")
                 {
                     ret.push(<span className="text">{subText}</span>)
                     subText = "";
                 }
-                ret.push(ImageKeyWordMap[textFragments[i]])     
+                ret.push(EffectImageKeyWordMap[textFragments[i]])     
             }
             else{ subText += " " + textFragments[i] }
         }
