@@ -23,16 +23,16 @@ const EffectTags = {
 } 
 
 const EffectImageKeyWordMap = {
-    "[Card]" : <Card/>,
-    "[Egg]" : <Egg/>,
-    "[Tuck]" : <img className="containImage" src={Tuck} alt={Tuck}/>,
-    "[Predator]" : <img className="containImage" src={Predator} alt={Predator}/>,
+    "card" : <Card/>,
+    "egg" : <Egg/>,
+    "tuck" : <img className="containImage" src={Tuck} alt={Tuck}/>,
+    "predator" : <img className="containImage" src={Predator} alt={Predator}/>,
 }
 for (const [key] of Object.entries(FoodTypes)){
-    EffectImageKeyWordMap[`[${key}]`] = <Food Type={key}/>
+    EffectImageKeyWordMap[`${key.toLowerCase()}`] = <Food Type={key}/>
 }
 for (const [key] of Object.entries(NestTypes)){
-    EffectImageKeyWordMap[`[${key}]`] = <Nest Type={key}/>
+    EffectImageKeyWordMap[`${key.toLowerCase()}`] = <Nest Type={key}/>
 }
 
 function Effect(props) {

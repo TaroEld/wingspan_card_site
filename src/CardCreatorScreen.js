@@ -15,7 +15,7 @@ function CardCreatorScreen(props) {
     const [name, setName] = useState("");
     const [testState, setTestState] = useState(true)
 
-    const [descriptionText, setDescriptionText] = useState("[Wild]");
+    const [descriptionText, setDescriptionText] = useState("wild fish card tuck");
     const [descriptionType, setDescriptionType] = useState("Effect");
     const [effectType, setEffectType] = useState("Activated");
     const [effectTag, setEffectTag] = useState("Tuck");
