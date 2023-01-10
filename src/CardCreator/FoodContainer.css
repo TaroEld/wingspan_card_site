@@ -1,10 +1,15 @@
 .foodContainer
 {
-    width: 5rem;
+    min-width: 5rem;
+    width: fit-content;
     height: 2rem;
     position: relative;
     left: 5px;
-    background-color: rgb(182, 161, 136);
     display:flex;
     justify-content: center;
+}
+.foodContainer > .foodImg
+{
+    width: 1rem;
+    height: 1rem;
 }
