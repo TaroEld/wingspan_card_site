@@ -6,7 +6,7 @@ import DescriptionContainer from "./DescriptionContainer";
 import VPContainer from "./VPContainer";
 import EggContainer from "./EggContainer";
 import WingspanContainer from "./WingspanContainer";
-import { Nest } from "../Nest";
+import NestContainer from "./NestContainer"
 
 function CardTemplate(props) {
     return (
@@ -17,7 +17,7 @@ function CardTemplate(props) {
             <VPContainer vpNum = {props.vpNum}/>
             <EggContainer eggNum = {props.eggNum}/>
             <div className="imageContainer"></div>
-            <Nest Type={props.nestType}/>
+            <NestContainer Type={props.nestType}/>
             <WingspanContainer wingspanNum = {props.wingspanNum}/>
             <DescriptionContainer descriptionText= {props.descriptionText} descriptionType={props.descriptionType} effectType={props.effectType} effectTag={props.effectTag}/>
         </div>
