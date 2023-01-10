@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CardTemplate from './CardCreator/CardTemplate';
+import FoodContainer from "./CardCreator/FoodContainer";
 import "./CardCreatorScreen.css"
+import { Food, FoodTypes } from "./Food";
 
 function CardCreatorScreen(props) {
     const [food, setFood] = useState(["Wild"]);
