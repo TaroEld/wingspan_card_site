@@ -38,11 +38,11 @@ for (const [key] of Object.entries(NestTypes)){
 function Effect(props) {
     const prefixTypeMap = {
         None :      "",
-        Activated : "When Activated: ",
-        Played :    "When Played: ",
-        Round :     "On Round End: ",
-        Game :      "On Game End: ",
-        Turn :      "On Turn End: "
+        Activated : "WHEN ACTIVATED: ",
+        Played :    "WHEN PLAYED: ",
+        Round :     "ROUND END: ",
+        Game :      "GAME END: ",
+        Turn :      "TURN END: "
     }
     const prefixTagMap = {
         None : <span/>,
