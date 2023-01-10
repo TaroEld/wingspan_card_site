@@ -39,6 +39,21 @@ function CardCreatorScreen(props) {
         else
             setDefaults();
     }
+    const currentFood = useRef();
+    const addFood = (_food) =>
+    {
+        if (food.length < 3)
+        {
+            setFood([...food, _food])
+        }
+    }
+    const removeFood = () => 
+    {
+        if (food)
+        {
+            setFood(food.slice(0, -1))
+        }
+    }
     return (
         <div className="cardCreatorScreen">
             <div className="cardTemplateContainer">
@@ -47,13 +62,42 @@ function CardCreatorScreen(props) {
                     nestType={nestType} vpNum={vpNum} eggNum={eggNum} wingspanNum = {wingspanNum} />
             </div>
             <div className="cardSettingsContainer">
-                <label htmlFor="birdName">Name:</label>
-                <input  id ="birdName"  value={name} onChange={(_event) => {setName(_event.target.value)}}/>
-                <label htmlFor="birdDescription">Description:</label>
-                <textarea type="text" id ="birdDescription" value={descriptionText} onChange={(_event) => {setDescriptionText(_event.target.value)}}/>
+                <div className="settingsOption">
+                    <label htmlFor="birdName">Name:</label>
+                    <input  id ="birdName"  value={name} onChange={(_event) => {setName(_event.target.value)}}/>
+                </div>
+                <div className="settingsOption">
+                    <label htmlFor="birdDescription">Description:</label>
+                    <textarea style={{display: "block"}} type="text" id ="birdDescription" value={descriptionText} onChange={(_event) => {setDescriptionText(_event.target.value)}}/>
+                </div>
+                <div className="settingsOption">
+                    <label>Food (Click to add)</label>
+                    <div className="foodSelector">
+                        {Object.keys(FoodTypes).map((_type) => {
+                            return <span onClick={() => addFood(_type)}>
+                                        <Food Type={_type}/>
+                                    </span>
+                        })}
+                    </div>
+                    <label>Current food (Click to remove)</label>
+                    <div className="foodSelector" onClick={removeFood}>
+                        <FoodContainer foodArray = {food}/>
+                    </div>
+                    <label htmlFor="food-separator">{foodSeparator === "/" ? 'Or ("/")' : 'And ("+")'}</label>
+                    <input id="food-separator" type="checkbox" className="test" onClick = {() =>{foodSeparator === "/" ? setFoodSeparator("+") : setFoodSeparator("/")}}/>
+                </div>
+                <div className="settingsOption">
+                    
+                </div>
+                <div className="settingsOption">
+                    
+                </div>
+                <div className="settingsOption">
+                    
+                </div>
                 <button className="test" onClick = {test}/>
-                <label htmlFor="food-separator-label">Separator</label>
-                <input id="food-separator-label" type="checkbox" className="test" onClick = {() =>{foodSeparator === "/" ? setFoodSeparator("+") : setFoodSeparator("/")}}/>
+               
+                
             </div>
         </div>
     );
