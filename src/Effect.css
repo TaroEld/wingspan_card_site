@@ -1,0 +1,14 @@
+.effect div
+{
+    display: inline;
+}
+.effect img
+{
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+}
+
+.Activated
+{
+    background-color: #6C490F;
+}
