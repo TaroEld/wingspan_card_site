@@ -7,32 +7,45 @@
     position:relative;
 }
 
-.habitatContainer
+.cardTemplate .foodContainer
 {
+    background-color: rgb(182, 161, 136);
+}
+
+.cardTemplate .habitatContainer
+{
+    background-color: rgb(182, 161, 136);
     position: relative;
     top: 5px;
     left: 5px;
 }
 
-.vpContainer
-{
-    margin-top: 1.5rem;
-    margin-left: 0.5rem;
-}
-.eggContainer
+.cardTemplate .vpContainer
 {
     margin-top: 1.5rem;
     margin-left: 0.5rem;
 }
 
-.wingspanContainer
+.cardTemplate .eggContainer
+{
+    margin-top: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.cardTemplate .wingspanContainer
 {
     margin-top: 1.5rem;
     margin-left: 0.5rem;
     border: 1px solid red;
 }
 
-.descriptionContainer
+.cardTemplate .descriptionContainer
+{
+    margin-top: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.cardTemplate .nestContainer
 {
     margin-top: 1.5rem;
     margin-left: 0.5rem;
