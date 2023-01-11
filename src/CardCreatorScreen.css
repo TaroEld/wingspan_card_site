@@ -2,6 +2,13 @@
 {
     display:flex;
 }
+
+@media only screen and (max-width: 900px) {
+
+    .cardCreatorScreen {
+       flex-direction: column;
+    }
+}
 .cardCreatorScreen button
 {
     width:5rem;
@@ -9,7 +16,7 @@
 }
 .cardTemplateContainer
 {
-    width:50vw;
+    width:90%;
     flex:3;
     display: flex;
     justify-content: center;
