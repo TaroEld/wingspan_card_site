@@ -68,7 +68,7 @@
 .birdName
 {
     color:#2F2B19;
-    font-size: 2vw;
+    font-size: 2rem;
     font-weight: bold;
     grid-column: 2;
     grid-row: 1 / span 2;
