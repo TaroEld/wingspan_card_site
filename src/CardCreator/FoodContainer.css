@@ -4,7 +4,6 @@
     width: fit-content;
     height: 2rem;
     position: relative;
-    left: 5px;
     display:flex;
     justify-content: center;
 }

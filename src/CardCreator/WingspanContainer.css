@@ -4,11 +4,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 4rem;
-}
-.num{
-    color: black;
-}
-.span{
-    border: 1px solid blue;
+    font-size: 1.5rem;
 }
