@@ -1,35 +1,32 @@
 .cardCreatorScreen
 {
     display:flex;
+    width: 90vw;
 }
-
 @media only screen and (max-width: 900px) {
 
     .cardCreatorScreen {
        flex-direction: column;
     }
 }
-.cardCreatorScreen button
-{
-    width:5rem;
-    height:2rem;
-}
 .cardTemplateContainer
 {
-    width:90%;
-    flex:3;
+    flex: 1;
     display: flex;
     justify-content: center;
 }
 .cardSettingsContainer
 {
-    width: 100%;
-    flex:1;
+    flex: 1;   
 }
 .cardSettingsContainer > *
 {
     margin-top: 1rem;
-    
+}
+.cardCreatorScreen button
+{
+    width:5rem;
+    height:2rem;
 }
 
 .settingsOption 
