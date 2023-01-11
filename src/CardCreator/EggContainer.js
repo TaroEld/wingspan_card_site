@@ -6,7 +6,7 @@ const EggContainer = (props) => {
     const getEggs = () => {
         const ret = []
         for (let index = 0; index < props.eggNum; index++) {
-            ret.push(<Egg/>)
+            ret.push(<Egg key={index}/>)
         }
         return ret;
     }
