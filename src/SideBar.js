@@ -7,8 +7,8 @@ function SideBar(props) {
         props.parentCallback(_button)
     }
     return (
-        <div className="buttonContainer" >
-            <button className="tierList" onClick={() => onButtonClicked("TierList")}>Tier List</button>
+        <div className="sideBar" >
+            {/* <button className="tierList" onClick={() => onButtonClicked("TierList")}>Tier List</button> */}
             <button className="cardCreator" onClick={() => onButtonClicked("CardCreator")}>Card Creator</button>
         </div>
     );

@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 function App() {
   const contentStates = {
-    TierList : <TierListScreen/>,
+    // TierList : <TierListScreen/>,
     CardCreator : <CardCreatorScreen/>
   }
   const [content, setContent] = useState(contentStates.CardCreator);
@@ -15,7 +15,7 @@ function App() {
   }
   return (
     <div className="App">
-      <SideBar className ="SideBar" parentCallback = {onSideBarClicked}/>
+      <SideBar parentCallback = {onSideBarClicked}/>
       <div className="mainContent">
         {content}
       </div>
