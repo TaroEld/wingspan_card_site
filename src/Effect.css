@@ -1,6 +1,11 @@
+.effect
+{
+    padding: 5px;
+}
 .effect div
 {
     display: inline;
+
 }
 .effect img
 {
@@ -8,8 +13,32 @@
     max-height: 1.5rem;
 }
 
-.Activated
+.effect span {
+    font-size: 1vw;
+}
+
+.effect.Activated
 {
-    background-color: #6C490F;
+    background-color: #6C490F; 
+    color: white;
+}
+
+.effect.EnemyTurn{
+    background-color: #F79DAB;
+    color: black;
+}
+
+.effect.Played{
+    background-color: white;
+    color: black;
+}
+
+.effect.Round{
+    background-color: #6BC4C1;
+    color: black;
+}
+
+.effect.Game{
+    background-color: #FED23B;
     color: white;
 }
