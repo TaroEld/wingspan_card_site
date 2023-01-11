@@ -3,10 +3,10 @@ import Wingspan from "../Wingspan";
 import "./WingspanContainer.css"
 
 
-const WingspanContainer = (props) => {
+const WingspanContainer = ({wingspanNum}) => {
     return (
         <span className="wingspanContainer">
-            <span className="genericTextColor">{props.wingspanNum + " cm"}</span>
+            <span className="genericTextColor">{wingspanNum + " cm"}</span>
             <Wingspan/>
         </span>
     );

@@ -2,10 +2,10 @@ import React from 'react';
 import VPImg from "../assets/gfx/point.png";
 import "./VPContainer.css"
 
-const VPContainer = (props) => {
+const VPContainer = ({vpNum}) => {
     return (
         <div className="vpContainer">
-            <span className="genericTextColor">{props.vpNum}</span>
+            <span className="genericTextColor">{vpNum}</span>
             <img className="vpImg" src={VPImg} alt={VPImg}/>
         </div>
     );
