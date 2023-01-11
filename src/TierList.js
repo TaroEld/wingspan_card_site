@@ -1,34 +1,28 @@
+import { useState } from 'react'
 import './TierList.css'
-import {Bird} from './Bird.js'
-const getBirds = (_tierlist) => {
-    return Object.entries(_tierlist).map((_key, _value) => {
-        return <Bird key={_key} {..._value}/>
-    })
-}
-export const TierList = (props) => {
+import { birdlist } from './birdlist_mini'
+import CardTemplate from './CardCreator/CardTemplate'
+
+
+export const TierList = ({birdNameList, name}) => {
+    const [displayMode, setDisplayMode] = useState("Card")
     return (
-        <div className = "Tier">
-            <div className="TierHeader">{props.name}</div>
-            <table className="TierList">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>VP</th>
-                        <th>Food</th>
-                        <th>Nest</th>
-                        <th>Eggs</th>
-                        <th>Effect</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {
-                    Object.keys(props.tierlist).map((_key, _value) => {
-                        return <Bird key={_key} stats={props.tierlist[_key]}/>
-                    })
-                }
-                </tbody>
-            </table>
+        <div className="tierList">
+            <div className="tierHeader">{name}</div>
+            {
+                birdNameList.map((_name) => {
+                    const birdObj = birdlist[_name]
+                    if (birdObj !== undefined)
+                    {
+                        return <CardTemplate name = {birdObj.Name}  food={birdObj.Food.split(" ")} foodSeparator={birdObj.FoodSeparator} habitat={birdObj.Habitat.split(" ")} 
+                            descriptionText={birdObj.EffectText || ""} descriptionType = "Effect" effectType = {birdObj.EffectType} effectTag="None"
+                            nestType={birdObj.NestType} vpNum={birdObj.VpNum} eggNum={birdObj.EggNum} wingspanNum = {birdObj.wingspanNum} />
+                    }
+                    else return <div>Missing bird {_name}</div>
+                })
+            }
         </div>
-    );
+    )
+
 }
   
