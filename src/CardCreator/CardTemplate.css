@@ -3,60 +3,76 @@
     height: 40rem;
     background-color: #DFD7B3;
     border-radius: 1rem;
-    border: 4px solid #C2B78C;
-    position:relative;
-}
-
-.cardTemplate .foodContainer
-{
-    background-color: rgb(182, 161, 136);
+    border: 5px solid #C2B78C;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 2fr;
+    justify-items: center;
+    align-items: center;
 }
 
 .cardTemplate .habitatContainer
 {
     background-color: rgb(182, 161, 136);
-    position: relative;
-    top: 5px;
-    left: 5px;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
 }
 
+.cardTemplate .foodContainer
+{
+    align-self: start;
+    background-color: rgb(182, 161, 136);
+    grid-column: 1;
+    grid-row: 2;
+}
 .cardTemplate .vpContainer
 {
-    margin-top: 1.5rem;
-    margin-left: 0.5rem;
+    grid-column: 1;
+    grid-row: 3;
 }
-
 .cardTemplate .eggContainer
 {
-    margin-top: 1.5rem;
-    margin-left: 0.5rem;
-}
-
-.cardTemplate .wingspanContainer
-{
-    margin-top: 1.5rem;
-    margin-left: 0.5rem;
-    border: 1px solid red;
-}
-
-.cardTemplate .descriptionContainer
-{
-    margin-top: 1.5rem;
-    margin-left: 0.5rem;
+    grid-column: 1;
+    grid-row: 4;
 }
 
 .cardTemplate .nestContainer
 {
-    margin-top: 1.5rem;
-    margin-left: 0.5rem;
+    grid-column: 1;
+    grid-row: 5;
 }
 
-.name
+.cardTemplate .wingspanContainer
 {
-    position: absolute;
-    left: 7rem;
-    top: 2rem;
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.cardTemplate .descriptionContainer
+{
+    grid-column: 1 / span 2;
+    grid-row: 6;
+    align-self: start;
+    width: 100%;
+} 
+
+.cardTemplate .birdImageContainer
+{
+    grid-column: 2;
+    grid-row: 2 / span 3;
+    background-color: #2F2B19;
+} 
+
+.birdName
+{
     color:#2F2B19;
-    font-size: large;
+    font-size: 2vw;
     font-weight: bold;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
 }
