@@ -7,19 +7,21 @@ import VPContainer from "./VPContainer";
 import EggContainer from "./EggContainer";
 import WingspanContainer from "./WingspanContainer";
 import NestContainer from "./NestContainer"
+import BirdImageContainer from "./BirdImageContainer";
 
-function CardTemplate(props) {
+function CardTemplate({name, food, foodSeparator, habitat, vpNum, eggNum, nestType, wingspanNum, descriptionText, descriptionType, effectType, effectTag}) {
     return (
         <div className="cardTemplate genericTextColor">
-            <HabitatContainer habitatArray = {props.habitat}/>
-            <FoodContainer separator = {props.foodSeparator} foodArray = {props.food}/>
-            <span className="name">{props.name}</span>
-            <VPContainer vpNum = {props.vpNum}/>
-            <EggContainer eggNum = {props.eggNum}/>
+            <HabitatContainer habitatArray = {habitat}/>
+            <FoodContainer separator = {foodSeparator} foodArray = {food}/>
+            <span className="birdName">{name}</span>
+            <VPContainer vpNum = {vpNum}/>
+            <EggContainer eggNum = {eggNum}/>
             <div className="imageContainer"></div>
-            <NestContainer Type={props.nestType}/>
-            <WingspanContainer wingspanNum = {props.wingspanNum}/>
-            <DescriptionContainer descriptionText= {props.descriptionText} descriptionType={props.descriptionType} effectType={props.effectType} effectTag={props.effectTag}/>
+            <NestContainer Type={nestType}/>
+            <WingspanContainer wingspanNum = {wingspanNum}/>
+            <BirdImageContainer/>
+            <DescriptionContainer descriptionText= {descriptionText} descriptionType={descriptionType} effectType={effectType} effectTag={effectTag}/>
         </div>
     );
 }
