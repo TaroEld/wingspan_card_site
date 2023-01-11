@@ -1,6 +1,6 @@
 import React from 'react';
 import "./HabitatContainer.css"
-import Habitat from "../Habitat.js"
+import {Habitat} from "../Habitat.js"
 
 function HabitatContainer(props) {
     const getHabitat = () => {

@@ -4,10 +4,15 @@ import forest from "./assets/gfx/land_forest.png";
 import grass from "./assets/gfx/land_grass.png";
 import wet from "./assets/gfx/land_wet.png";
 
+const HabitatTypes = {
+    Forest : "Forest",
+    Grassland : "Grassland",
+    Wetland : "Wetland",
+}
 const habitatImages = {
     Forest : forest,
-    Grass : grass,
-    Wet : wet,
+    Grassland : grass,
+    Wetland : wet,
 }
 function Habitat(props) {
     const style={
@@ -21,4 +26,4 @@ function Habitat(props) {
     );
 }
 
-export default Habitat;
+export {Habitat, HabitatTypes}
