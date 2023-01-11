@@ -2,7 +2,7 @@
 {
     display:flex;
 }
-.test
+.cardCreatorScreen button
 {
     width:5rem;
     height:2rem;
@@ -10,26 +10,26 @@
 .cardTemplateContainer
 {
     width:50vw;
-    flex:1;
+    flex:3;
     display: flex;
     justify-content: center;
-    border: 1px solid black;    
 }
 .cardSettingsContainer
 {
-    width:50vw;
-    border: 1px solid red;   
+    width: 100%;
     flex:1;
 }
 .cardSettingsContainer > *
 {
     margin-top: 1rem;
+    
 }
 
 .settingsOption 
 {
     background: rgba(0,0,0,0.3);
-    width: fit-content;
+    border-radius: 1rem;;
+    width: 80%;
     padding: 1rem;
 }
 
@@ -39,10 +39,20 @@
     height: 2rem;
     display: inline-block;
 }
-.foodSelector
+.settingsOption input[type=text],
+.settingsOption textarea
+{
+    width:100%;
+}
+.foodSelector,
+.nestSelector
 {
     cursor: pointer;
-    width:fit-content;
+    width: fit-content;
+}
+.nestSelector > *
+{
+    display: inline-block;
 }
 .food-separator
 {
