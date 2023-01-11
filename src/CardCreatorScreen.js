@@ -15,7 +15,7 @@ function CardCreatorScreen(props) {
     const [eggNum, setEggNum] = useState(6);
     const [wingspanNum, setWingspanNum] = useState(100);
     const [foodSeparator, setFoodSeparator] = useState("/");
-    const [habitat, setHabitat] = useState(["Forest", "Wet", "Grass"]);
+    const [habitat, setHabitat] = useState(["Forest", "Wetland", "Grassland"]);
 
     const [descriptionText, setDescriptionText] = useState("wild fish card tuck");
     const [descriptionType, setDescriptionType] = useState("Effect");
