@@ -8,7 +8,7 @@ const Wingspan = () => {
     }
     return (
         <div style={style}>
-            <img className="containImage" src={WingspanImg} alt={WingspanImg}/>
+            <img className="containImage" src={WingspanImg} alt="Wingspan"/>
         </div>
     );
 };
