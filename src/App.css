@@ -3,10 +3,24 @@ body{
 }
 .App {
   background-color: #282c34;
-  min-height: 100vh;
-  width:100%;
+  height: 100vh;
+  width: 100vw;
   color: white;
-  display: flex;
+  display:flex;
+}
+
+.sideBar
+{
+  width: 5rem;
+  height: 100%;
+  background: rgb(140, 145, 133);
+  border-radius: 5px;
+}
+
+.mainContent
+{
+  width: 95rem;
+  height: 100vh;
 }
 
 .genericTextColor {
