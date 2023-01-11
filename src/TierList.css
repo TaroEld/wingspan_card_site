@@ -1,4 +1,4 @@
-.TierHeader
+.tierHeader
 {
     width: 90%;
     background-color: antiquewhite;
@@ -12,4 +12,14 @@
 .TierList
 {
     padding: 2px;
+}
+.tierList
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.tierList .cardTemplate
+{
+    width: calc(25rem * 0.6);
+    height: calc(40rem * 0.6);
 }
