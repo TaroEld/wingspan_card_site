@@ -1,7 +1,7 @@
 # About
 
 This is a WIP project to create a site dedicated to the boardgame Wingspan. 
-Among other features, it will include a Card Creator where users can create their own custom bird cards to share with other people.
+Among other features, it will include a Card Creator where users can create their own custom bird cards to share with other people.\
 This project is currently hosted under https://wingspan-card-site.vercel.app/
 
 ## Getting Started with Create React App
