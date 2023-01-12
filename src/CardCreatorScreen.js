@@ -6,21 +6,22 @@ import { Food, FoodTypes } from "./Food";
 import {birdlist} from "./birdlist_mini.js"
 import { Nest, NestTypes } from "./Nest";
 import { EffectTypes } from "./Effect";
+import { HabitatTypes } from "./Habitat";
 
 function CardCreatorScreen(props) {
-    const [name, setName] = useState("Test Name");
-    const [food, setFood] = useState(["Wild"]);
-    const [nestType, setNestType] = useState("Star");
-    const [vpNum, setVpNum] = useState(6);
+    const [name, setName] = useState("Name");
+    const [food, setFood] = useState([FoodTypes.Invertebrate, FoodTypes.Fish, FoodTypes.Fruit]);
+    const [nestType, setNestType] = useState(NestTypes.Star);
+    const [vpNum, setVpNum] = useState(10);
     const [eggNum, setEggNum] = useState(6);
     const [wingspanNum, setWingspanNum] = useState(100);
     const [foodSeparator, setFoodSeparator] = useState("/");
-    const [habitat, setHabitat] = useState(["Forest", "Wetland", "Grassland"]);
+    const [habitat, setHabitat] = useState([HabitatTypes.Grassland, HabitatTypes.Wetland, HabitatTypes.Forest]);
 
-    const [descriptionText, setDescriptionText] = useState("wild fish card tuck");
+    const [descriptionText, setDescriptionText] = useState("Description");
     const [descriptionType, setDescriptionType] = useState("Effect");
-    const [effectType, setEffectType] = useState("Activated");
-    const [effectTag, setEffectTag] = useState("Tuck");
+    const [effectType, setEffectType] = useState(EffectTypes.Activated);
+    const [effectTag, setEffectTag] = useState("");
 
     const [uploadedFile, setUploadedFile] = useState(null);
 
