@@ -17,7 +17,6 @@ function CardTemplate({name, food, foodSeparator, habitat, vpNum, eggNum, nestTy
             <span className="birdName">{name}</span>
             <VPContainer vpNum = {vpNum}/>
             <EggContainer eggNum = {eggNum}/>
-            <div className="imageContainer"></div>
             <NestContainer Type={nestType}/>
             <WingspanContainer wingspanNum = {wingspanNum}/>
             <BirdImageContainer/>

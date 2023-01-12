@@ -69,8 +69,18 @@
 .cardTemplate .birdImageContainer
 {
     grid-column: 2;
-    grid-row: 2 / span 3;
-    background-color: #2F2B19;
+    grid-row: 3 / span 3;
+    height: 100%;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+} 
+
+.cardTemplate .birdImageContainer img
+{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
 } 
 
 .birdName
