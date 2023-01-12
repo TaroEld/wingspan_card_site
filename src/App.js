@@ -3,11 +3,13 @@ import SideBar from './SideBar';
 import TierListScreen from './TierListScreen';
 import CardCreatorScreen from './CardCreatorScreen';
 import { useState } from 'react';
+import About from './About';
 
 function App() {
   const contentStates = {
     // TierList : <TierListScreen/>,
-    CardCreator : <CardCreatorScreen/>
+    CardCreator : <CardCreatorScreen/>,
+    About: <About/>
   }
   const [content, setContent] = useState(contentStates.CardCreator);
   const onSideBarClicked = (_state) => {

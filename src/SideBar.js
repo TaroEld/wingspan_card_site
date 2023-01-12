@@ -8,8 +8,8 @@ function SideBar(props) {
     }
     return (
         <div className="sideBar" >
-            {/* <button className="tierList" onClick={() => onButtonClicked("TierList")}>Tier List</button> */}
             <button className="cardCreator" onClick={() => onButtonClicked("CardCreator")}>Card Creator</button>
+            <button className="about" onClick={() => onButtonClicked("About")}>About</button>
         </div>
     );
 }
