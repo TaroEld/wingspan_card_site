@@ -47,6 +47,7 @@ const WingspanContainer = ({wingspanNum}) => {
 const VPContainer = ({vpNum}) => {
     return (
         <div className="vpContainer">
+            <span>{vpNum}</span>
             <VP/>
         </div>
     );

@@ -8,13 +8,13 @@
 }
 .vpContainer
 {
-    width: 4rem;
+    width: 6rem;
     height: 4rem;
     font-size: large;
     font-weight: bold;
     display:flex;
 }
-.vpContainer span{
+.vpContainer {
     font-size: 3rem;
     font-weight: bold;
 }
