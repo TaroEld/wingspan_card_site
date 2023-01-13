@@ -8,7 +8,7 @@ import EmptyCardTemplate from '../EmptyCardTemplate'
 // const CardTemplate = lazy(() => import('../CardTemplate'))
 // const EmptyCardTemplate = lazy(() => import('../EmptyCardTemplate'))
 
-const TierList = ({birdNameList}) => {
+const TierList = ({birdNameList, expansionFilter}) => {
     const [dataIdx, setDataIdx] = useState(Math.min(birdNameList.length, 10))
     let currentList = birdNameList.slice(0, dataIdx)
     const loading = async () => {
@@ -16,7 +16,6 @@ const TierList = ({birdNameList}) => {
         setDataIdx(newIdx)
         currentList = birdNameList.slice(0, newIdx)
     }
-    debugger;
     return (
         <InfiniteScroll
             className="tierList"
@@ -29,16 +28,23 @@ const TierList = ({birdNameList}) => {
                 if (bird !== undefined)
                 {
                     const birdObj = getBirdObject(bird)
+                    if (expansionFilter !== "All" && birdObj.expansionSet !== expansionFilter)
+                        return (<></>)
                     return (
                         <CardTemplate key={birdObj.name} className="small" {...birdObj} />
                     )
 
                 }
-                else return (
+                else
+                {
+                    if (expansionFilter === "All")
+                        return (<></>)
+                    return (
                         <EmptyCardTemplate key={_name} className="small">
                             <div>Missing Bird Data: {_name}</div>
                         </EmptyCardTemplate>
                     )
+                } 
                 
             })
         }
