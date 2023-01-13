@@ -77,7 +77,7 @@ function Effect(props) {
     }
     const composeDescription = (_text) => {
         if (_text === null)
-            return <></>
+            return null
         // This function goes over the text by splitting it into individual works based on spaces, then returns an array of either text spans, or image elements
 
         // Effect types are frequently referred to by color
@@ -85,8 +85,8 @@ function Effect(props) {
         const textFragments = _text.split(" ");
         const PrefixTagImg = prefixTagMap[props.tag]
         const ret = [
-            <PrefixTagImg/>,
-            <span>{prefixTextMap[type]}</span>
+            <PrefixTagImg key="prefixImg"/>,
+            <span key="prefixtag">{prefixTextMap[type]}</span>
         ];
         // This variable is used to combine all the previous text snippets before an element to replace to combine them all into one <span>
         let subText = "";
@@ -96,16 +96,21 @@ function Effect(props) {
             {
                 if (subText !== "")
                 {
-                    ret.push(<span className="text">{subText}</span>)
+                    ret.push(<span key={i} className="text">{subText}</span>)
                     subText = "";
                 }
                 // Create element based on the type map
                 // As some elements require a type, createElement with passed prop is used
                 const ImageType = EffectImageKeyWordMap[textFragments[i]]
                 const typeCapitalized = textFragments[i][0].toUpperCase() + textFragments[i].slice(1)
+                const props = {
+                    key : textFragments[i] + i
+                }
+                if (ImageType === Food || ImageType === Nest)
+                    props.Type = typeCapitalized
                 const Element = React.createElement(
                     ImageType,
-                    ImageType === Food || ImageType === Nest ? {"Type": typeCapitalized} : null
+                    props,
                 )
                 ret.push(Element)     
             }
@@ -113,7 +118,7 @@ function Effect(props) {
         }
         // This makes sure no text is left behind (no element to replace / text after the last element)
         if (subText !== "")
-            ret.push(<span className="text">{subText}</span>)  
+            ret.push(<span key="final" className="text">{subText}</span>)  
         
         return ret
     }
