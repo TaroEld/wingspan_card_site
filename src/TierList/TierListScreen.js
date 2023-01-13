@@ -1,36 +1,23 @@
-import {React, lazy, Suspense, useState} from 'react';
-import {tierLists} from "../tierlists.js"
+import {React, useState} from 'react';
 import "./TierListScreen.css"
+import {tierLists} from "../tierlists.js"
+import TierList from './TierList.js';
 
-const TierList = lazy(() => import('./TierList.js'))
-
-function TierListScreen(props) {
-    const tierListNames = [
-        "God Tier",
-        "Tier 0",
-        "Tier 1",
-        "Tier 2",
-        "Tier 3",
-        "Tier 4"
-    ]
-    const [currentIdx, setCurrentIdx ] = useState(0)
-    const [currentName, setCurrentName] = useState(tierListNames[currentIdx])
-    const updateSelectedList = (_button, _idx) => {
-        setCurrentIdx(_idx);
-        setCurrentName(tierListNames[_idx])
+function TierListScreen() {
+    const [currentIdx, setCurrentIdx] = useState(0)
+    const getCurrentList = () => {
+        return (<TierList key={currentIdx} birdNameList = {tierLists[currentIdx]}/>)
     }
     return (
         <div id="tierListScreen">
             <div className="headerButtonBar">
                 {
                     tierLists.map((_entry, idx) => {
-                        return <button key={idx} onClick={() => updateSelectedList(this, idx)}>{tierListNames[idx]}</button>
+                        return <button key={idx} onClick={() => setCurrentIdx(idx)}>List: {idx}</button>
                     })
                 }
             </div>
-            <Suspense fallback={<div>Loading...</div>}>
-                <TierList birdNameList = {tierLists[currentIdx]} name = {currentName}/>
-            </Suspense>
+            {getCurrentList()}
         </div>
     );
 }

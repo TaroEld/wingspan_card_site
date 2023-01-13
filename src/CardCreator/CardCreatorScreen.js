@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import "./CardCreatorScreen.css"
-import {CardTemplate} from '../CardTemplate';
+import CardTemplate from '../CardTemplate';
 import {birdlist} from "../birdlist_mini.js"
 import {FoodContainer} from "../Resources/ResourceContainers.js"
 import { EffectTypes } from "../Resources/Effect";

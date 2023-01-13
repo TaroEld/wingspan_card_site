@@ -2,13 +2,6 @@ import React from "react";
 import "./CardTemplate.css"
 import {EggContainer, DescriptionContainer, WingspanContainer, VPContainer, NestContainer, HabitatContainer, FoodContainer, BirdImageContainer} from "./Resources/ResourceContainers.js"
 
-const EmptyTemplate = (props) => {
-    return (
-        <div className={`cardTemplate empty ${props.className}`}>
-            {props.children}
-        </div>
-    )
-}
 function CardTemplate({name, food, foodSeparator, habitat, vpNum, eggNum, nestType, wingspanNum, effectText, effectType, effectTag, flavorText, className}) {
     return (
         <div className={`cardTemplate genericTextColor ${className}`}>
@@ -25,4 +18,4 @@ function CardTemplate({name, food, foodSeparator, habitat, vpNum, eggNum, nestTy
     );
 }
 
-export {CardTemplate, EmptyTemplate};
+export default CardTemplate;

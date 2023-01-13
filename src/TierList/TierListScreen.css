@@ -1,5 +1,6 @@
 #tierListScreen{
     width:100%;
+    overflow:auto;
 }
 #tierListScreen .headerButtonBar{
     width: 100%;

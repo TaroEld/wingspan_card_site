@@ -14,10 +14,6 @@
 {
     display: flex;
     flex-wrap: wrap;
+    overflow: auto;
     gap: 5px;
-}
-
-.tierList .birdName
-{
-    font-size: 1.5rem;
 }
