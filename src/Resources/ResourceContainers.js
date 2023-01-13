@@ -9,8 +9,13 @@ const DescriptionContainer = (props) => {
     const toggleEntryType = () => {
         setEntryToggle(!entryToggle)
     }
+    const reduceText = () => {
+        if ((entryToggle && props.effectText.length > 50) || (!entryToggle && props.flavorText.length > 50))
+            return "reducetext"
+        return ""
+    }
     return (
-        <div className="descriptionContainer" onClick={toggleEntryType}>
+        <div className={`descriptionContainer ${reduceText()}`} onClick={toggleEntryType}>
             {entryToggle && <Effect text={props.effectText} type={props.effectType} tag={props.effectTag}/>}
             {!entryToggle &&  <span className="genericTextColor">{props.flavorText}</span>}
         </div>
