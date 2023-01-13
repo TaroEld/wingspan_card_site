@@ -29,7 +29,7 @@ const TierList = ({birdNameList, expansionFilter}) => {
                 {
                     const birdObj = getBirdObject(bird)
                     if (expansionFilter !== "All" && birdObj.expansionSet !== expansionFilter)
-                        return (<></>)
+                        return null
                     return (
                         <CardTemplate key={birdObj.name} className="small" {...birdObj} />
                     )
@@ -38,7 +38,7 @@ const TierList = ({birdNameList, expansionFilter}) => {
                 else
                 {
                     if (expansionFilter === "All")
-                        return (<></>)
+                        return null
                     return (
                         <EmptyCardTemplate key={_name} className="small">
                             <div>Missing Bird Data: {_name}</div>
