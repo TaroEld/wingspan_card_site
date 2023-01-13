@@ -15,7 +15,7 @@ const getBirdObject = function(_stats)
         wingspanNum :       0,
         flavorText:         "",
         effectText :        "",
-        effectType :        "",
+        effectType :        "None",
         effectTag  :        "",
         predator   :        false,
         flocking   :        false,
