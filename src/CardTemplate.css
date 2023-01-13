@@ -11,13 +11,12 @@
     justify-items: center;
     align-items: center;
 }
-
-@media only screen and (max-width: 900px) {
-
-    .cardTemplate {
-        width: calc(25rem * 0.7);
-        height: calc(40rem * 0.7);
-    }
+.cardTemplate.empty
+{
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 2;
+    color: black;
+    font-size: 2rem;
 }
 
 .cardTemplate .habitatContainer
@@ -66,6 +65,16 @@
     width: 100%;
 } 
 
+.cardTemplate  .descriptionContainer {
+    min-height: 2rem;
+    cursor: pointer;
+}
+
+.cardTemplate .descriptionContainer>span{
+    font-size: 1.5rem;
+}
+
+
 .cardTemplate .birdImageContainer
 {
     grid-column: 2;
@@ -93,4 +102,29 @@
     align-self: center;
     justify-self: center;
     text-align: center;
+}
+
+.cardTemplate.small
+{
+    width: calc(25rem * 0.6);
+    height: calc(40rem * 0.6);
+}
+
+.cardTemplate.small .birdName
+{
+    font-size: 1.5rem;
+}
+.cardTemplate.small .descriptionContainer span {
+    font-size: 1.0rem;
+}
+.cardTemplate.small .descriptionContainer img {
+    height:1rem;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .cardTemplate {
+        width: calc(25rem * 0.6);
+        height: calc(40rem * 0.6);
+    }
 }

@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import CardTemplate from './CardCreator/CardTemplate';
-import FoodContainer from "./CardCreator/FoodContainer";
+import React, { useState} from "react";
 import "./CardCreatorScreen.css"
-import { Food, FoodTypes } from "./Food";
-import {birdlist} from "./birdlist_mini.js"
-import { Nest, NestTypes } from "./Nest";
-import { EffectTypes } from "./Effect";
-import { HabitatTypes } from "./Habitat";
+import {CardTemplate} from '../CardTemplate';
+import {birdlist} from "../birdlist_mini.js"
+import {FoodContainer} from "../Resources/ResourceContainers.js"
+import { EffectTypes } from "../Resources/Effect";
+import {NestTypes, FoodTypes, HabitatTypes, Nest, Food} from "../Resources/Resources.js"
+import getBirdObject from "../getBirdObject";
 
 function CardCreatorScreen(props) {
     const [name, setName] = useState("Name");
@@ -18,54 +17,47 @@ function CardCreatorScreen(props) {
     const [foodSeparator, setFoodSeparator] = useState("/");
     const [habitat, setHabitat] = useState([HabitatTypes.Grassland, HabitatTypes.Wetland, HabitatTypes.Forest]);
 
-    const [descriptionText, setDescriptionText] = useState("Description");
-    const [descriptionType, setDescriptionType] = useState("Effect");
+    const [effectText, setEffectText] = useState("fruit");
     const [effectType, setEffectType] = useState(EffectTypes.Activated);
     const [effectTag, setEffectTag] = useState("");
+    const [flavorText, setFlavorText] = useState("Flavor");
 
     const [uploadedFile, setUploadedFile] = useState(null);
 
     const setStateFromObject = _object => {
-        setName(_object.Name);
-        setFood(typeof _object.Food === "string" ? _object.Food.split(" ") : _object.Food)
-        const nestTypeCapitalized = _object.NestType[0].toUpperCase() + _object.NestType.slice(1)
-        setNestType(nestTypeCapitalized)
-        setVpNum(_object.VPNum)
-        setEggNum(_object.EggNum)
-        setWingspanNum(_object.Wingspan)
-        setFoodSeparator(_object.FoodSeparator)
-        setHabitat(typeof _object.Habitat === "string" ? _object.Habitat.split(" ") : _object.Habitat)
-        setDescriptionText(_object.EffectText)
-        setDescriptionType("Effect")
-        setEffectType(_object.EffectType)
+        setName(_object.name);
+        setFood(_object.food)
+        setFoodSeparator(_object.foodSeparator)
+        setHabitat(_object.habitat)
+        setNestType(_object.nestType)
+        setVpNum(_object.vpNum)
+        setEggNum(_object.eggNum)
+        setWingspanNum(_object.wingspanNum)
+        setEffectText(_object.effectText)
+        setFlavorText(_object.flavorText)
+        setEffectType(_object.effectType)
     }
 
     const loadRandomBird = () => {
         const birdNames = Object.keys(birdlist);
         const randomName = birdNames[Math.floor(Math.random() * birdNames.length)];
         const randomBird = birdlist[randomName];
-        setStateFromObject(randomBird)
+        const statsObj = getBirdObject(randomBird)
+        setStateFromObject(statsObj)
     }
     const exportBird = () => {
-        const birdObj = {
-            "Name":name,
-            "ScientificName":"",
-            "ExpansionSet":"core",
-            "EffectType": effectType,
-            "EffectText":descriptionText,
-            "FlavorText":"",
-            "Predator":false,
-            "Flocking":false,
-            "Bonus_Card":false,
-            "VPNum":vpNum,
-            "Habitat":habitat,
-            "Food":food,
-            "FoodSeparator":foodSeparator,
-            "FoodSpecial":false,
-            "NestType":nestType,
-            "EggNum":eggNum,
-            "Wingspan":wingspanNum
-        }
+        const birdObj = getBirdObject({
+            name,
+            effectType,
+            effectText,
+            vpNum,
+            habitat,
+            food,
+            foodSeparator,
+            nestType,
+            eggNum,
+            wingspanNum
+        })
         const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
             JSON.stringify(birdObj)
           )}`;
@@ -83,8 +75,7 @@ function CardCreatorScreen(props) {
         var reader = new FileReader();
         reader.onload = function() {
             const result = JSON.parse(this.result);
-            debugger;
-            setStateFromObject(result)   
+            setStateFromObject(getBirdObject(result))   
         }
         reader.readAsText(uploadedFile)
     }
@@ -102,8 +93,8 @@ function CardCreatorScreen(props) {
         <div className="cardCreatorScreen">
             <div className="cardTemplateContainer">
                 <CardTemplate food={food} foodSeparator={foodSeparator} habitat={habitat} name = {name} 
-                    descriptionText={descriptionText} descriptionType = {descriptionType} effectType = {effectType} effectTag={effectTag}
-                    nestType={nestType} vpNum={vpNum} eggNum={eggNum} wingspanNum = {wingspanNum} />
+                    effectText={effectText} effectType = {effectType} effectTag={effectTag}
+                    nestType={nestType} vpNum={vpNum} eggNum={eggNum} wingspanNum = {wingspanNum} flavorText={flavorText} />
             </div>
             <div className="cardSettingsContainer">
                 <div className="settingsOption">
@@ -112,7 +103,7 @@ function CardCreatorScreen(props) {
                 </div>
                 <div className="settingsOption">
                     <label htmlFor="birdDescription">Description:</label>
-                    <textarea style={{display: "block"}} type="text" id ="birdDescription" value={descriptionText} onChange={_event => {setDescriptionText(_event.target.value)}}/>
+                    <textarea style={{display: "block"}} type="text" id ="birdDescription" value={effectText} onChange={_event => {setEffectText(_event.target.value)}}/>
                     <label>Type: </label>
                     <select value={effectType} name="Effect Type" id="effectType" onChange={_event => {setEffectType(_event.target.value)}}>
                         {

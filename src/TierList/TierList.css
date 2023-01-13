@@ -1,6 +1,6 @@
 .tierHeader
 {
-    width: 90%;
+    width:100%;
     background-color: antiquewhite;
     font-size: large;
     color: black;
@@ -9,17 +9,15 @@
 
     font-weight: 500;
 }
-.TierList
-{
-    padding: 2px;
-}
+
 .tierList
 {
     display: flex;
     flex-wrap: wrap;
+    gap: 5px;
 }
-.tierList .cardTemplate
+
+.tierList .birdName
 {
-    width: calc(25rem * 0.6);
-    height: calc(40rem * 0.6);
+    font-size: 1.5rem;
 }

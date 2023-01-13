@@ -1,0 +1,84 @@
+.wingspanContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.0rem;
+}
+.vpContainer
+{
+    width: 4rem;
+    height: 4rem;
+    font-size: large;
+    font-weight: bold;
+    display:flex;
+}
+.vpContainer span{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.vpImg{
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+.nestContainer
+{
+    width: fit-content;
+}
+.habitatContainer
+{
+    width: 5.5rem;
+    height: 4rem;
+    position: relative;
+}
+.habitatContainer > *
+{
+    position: absolute;
+}
+.habitatImg:nth-child(1)
+{
+    top: 30%;
+    left: 10%;
+}
+.habitatImg:nth-child(2)
+{
+    top: 30%;
+    left: 50%;
+}
+.habitatImg:nth-child(3)
+{
+    left: 30%;
+    top:3%;
+}
+.foodContainer
+{
+    min-width: 5.5rem;
+    width: fit-content;
+    height: 2rem;
+    position: relative;
+    display:flex;
+    justify-content: center;
+}
+.foodContainer > .foodImg
+{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+.eggContainer{
+    width: 5rem;
+    display: flex;
+    height: 3rem;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 2px;
+}
+.descriptionContainer {
+    min-height: 2rem;
+    cursor: pointer;
+}
+.descriptionContainer>span{
+    font-size: 1.5rem;
+}

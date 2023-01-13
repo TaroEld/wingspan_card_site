@@ -1,10 +1,5 @@
 import React from 'react';
-import {Nest, NestTypes} from "./Nest.js"
-import {Food, FoodTypes} from "./Food.js"
-import Card from "./Card.js"
-import Egg from "./Egg.js"
-import Tuck from "./assets/gfx/tuck.png"
-import Predator from "./assets/gfx/predator.png"
+import {NestTypes, FoodTypes, Card, Egg, Tuck, Predator, BonusCard, Food, Nest} from "./Resources.js"
 import "./Effect.css"
 
 const EffectTypes = {
@@ -34,21 +29,28 @@ const EffectTags = {
 } 
 
 const EffectImageKeyWordMap = {
-    "card" : <Card/>,
-    "egg" : <Egg/>,
-    "tuck" : <img className="containImage" src={Tuck} alt={Tuck}/>,
-    "predator" : <img className="containImage" src={Predator} alt={Predator}/>,
+    "card" : Card,
+    "egg" : Egg,
+    "tuck" : Tuck,
+    "predator" : Predator,
 }
+
 for (const [key] of Object.entries(FoodTypes)){
-    EffectImageKeyWordMap[`${key.toLowerCase()}`] = <Food Type={key}/>
+    EffectImageKeyWordMap[`${key.toLowerCase()}`] = Food
 }
 for (const [key] of Object.entries(NestTypes)){
-    EffectImageKeyWordMap[`${key.toLowerCase()}`] = <Nest Type={key}/>
+    EffectImageKeyWordMap[`${key.toLowerCase()}`] = Nest
+}
+
+const GenericSpan = () => {
+    return (
+        <span/>
+    )
 }
 
 function Effect(props) {
     // TODO: Add keys, I lack a good way to do that with the current way of getting the objects
-    const prefixTypeMap = {
+    const prefixTextMap = {
         None :      "",
         Activated : "WHEN ACTIVATED: ",
         EnemyTurn: "ONCE BETWEEN TURNS: ",
@@ -58,10 +60,11 @@ function Effect(props) {
     }
 
     const prefixTagMap = {
-        None : <span/>,
-        Flocking : <img className="containImage" src={Tuck} alt={Tuck}/>,
-        Predator: <img className="containImage" src={Predator} alt={Predator}/>,
-        Bonus_Card: <img className="containImage" src={Tuck} alt={Tuck}/>,
+        "" : GenericSpan,
+        None : GenericSpan,
+        Flocking : Tuck,
+        Predator: Predator,
+        BonusCard: BonusCard,
     }
     const translateColorType = _type =>
     {
@@ -80,9 +83,10 @@ function Effect(props) {
         // Effect types are frequently referred to by color
         const type = translateColorType(props.type)
         const textFragments = _text.split(" ");
+        const PrefixTagImg = prefixTagMap[props.tag]
         const ret = [
-            prefixTagMap[props.tag],
-            <span>{prefixTypeMap[type]}</span>
+            <PrefixTagImg/>,
+            <span>{prefixTextMap[type]}</span>
         ];
         // This variable is used to combine all the previous text snippets before an element to replace to combine them all into one <span>
         let subText = "";
@@ -95,7 +99,15 @@ function Effect(props) {
                     ret.push(<span className="text">{subText}</span>)
                     subText = "";
                 }
-                ret.push(EffectImageKeyWordMap[textFragments[i]])     
+                // Create element based on the type map
+                // As some elements require a type, createElement with passed prop is used
+                const ImageType = EffectImageKeyWordMap[textFragments[i]]
+                const typeCapitalized = textFragments[i][0].toUpperCase() + textFragments[i].slice(1)
+                const Element = React.createElement(
+                    ImageType,
+                    ImageType === Food || ImageType === Nest ? {"Type": typeCapitalized} : null
+                )
+                ret.push(Element)     
             }
             else{ subText += " " + textFragments[i] }
         }
@@ -106,9 +118,11 @@ function Effect(props) {
         return ret
     }
     return (
-        <div className={"effect " + translateColorType(props.type)}>
-            {composeDescription(props.text)}
-        </div>
+        <>
+            <div className={"effect " + translateColorType(props.type)}>
+                {composeDescription(props.text)}
+            </div>
+        </>
     );
 }
 
