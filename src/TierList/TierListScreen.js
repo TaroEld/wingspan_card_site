@@ -12,7 +12,13 @@ function TierListScreen() {
     return (
         <div id="tierListScreen">
             <div>
-                This page shows the tier list of <a href="https://wingsplain.com/wingspan-bird-card-tier-list/">wingsplain.com</a> in a more comprehensible view.
+                <div style={{display: "flex", alignContent: "center", justifyContent: "center", fontSize:"1.5rem"}}>
+                    <span>
+                        WIP <br/>
+                        This page shows the tier list of <a href="https://wingsplain.com/wingspan-bird-card-tier-list/">wingsplain.com</a> in a more detailed manner.<br/>
+                        Scroll down to load more cards.
+                    </span>
+                </div>
                 <div className="settingsOption">
                     <label htmlFor="expansionFilter">Filter by expansion: </label>
                     <select value={expansionFilter} onChange={_event => setExpansionFilter( _event.target.value)} name = "Expansion Filter" id="expansionFilter">
