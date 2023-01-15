@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.0rem;
+    font-size: 1em;
 }
 .vpContainer
 {
@@ -15,7 +15,7 @@
     display:flex;
 }
 .vpContainer {
-    font-size: 3rem;
+    font-size: 3em;
     font-weight: bold;
 }
 .vpImg{
@@ -67,7 +67,8 @@
     width: 1.3rem;
     height: 1.3rem;
 }
-.eggContainer{
+.eggContainer
+{
     width: 5rem;
     display: flex;
     height: 3rem;
@@ -75,10 +76,12 @@
     align-content: flex-start;
     row-gap: 2px;
 }
-.descriptionContainer {
+.descriptionContainer 
+{
     min-height: 2rem;
     cursor: pointer;
 }
-.descriptionContainer>span{
-    font-size: 1.5rem;
+.descriptionContainer > span
+{
+    font-size: 1.5em;
 }

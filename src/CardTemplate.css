@@ -16,9 +16,14 @@
     grid-column: 1 / span 2;
     grid-row: 2 / span 2;
     color: black;
-    font-size: 2rem;
+    font-size: 2em;
 }
-
+.cardTemplate.small
+{
+    width: calc(25rem * 0.6);
+    height: calc(40rem * 0.6);
+    font-size: 10px;
+}
 .cardTemplate > *
 {
     padding-left: 5px;
@@ -74,18 +79,19 @@
     cursor: pointer;
 } 
 
-.cardTemplate .descriptionContainer > span
+/* .cardTemplate .descriptionContainer > span
 {
-    font-size: 1.5rem;
-}
-.cardTemplate .descriptionContainer.reducetext span
+    font-size: calc(1vh / 0.7vw);
+} */
+
+/* .cardTemplate .descriptionContainer.reducetext span
 {
     font-size: 0.7rem !important;
 }
 .cardTemplate .descriptionContainer.reducetext img
 {
     height: 0.7rem !important;
-}
+} */
 .cardTemplate .birdImageContainer
 {
     grid-column: 2;
@@ -115,17 +121,6 @@
     text-align: center;
 }
 
-.cardTemplate.small
-{
-    width: calc(25rem * 0.6);
-    height: calc(40rem * 0.6);
-}
-
-.cardTemplate.small .birdName
-{
-    font-size: 1.5rem;
-}
-.cardTemplate.small .descriptionContainer span 
 .scientificName
 {
     color:#2F2B19;
@@ -136,24 +131,4 @@
     align-self: center;
     justify-self: center;
     text-align: center;
-}
-
-@media only screen and (max-width: 900px) {
-
-    .cardTemplate {
-        width: calc(25rem * 0.6);
-        height: calc(40rem * 0.6);
-    }
-    .cardTemplate .birdName
-    {
-        font-size: 1.5rem;
-    }
-    .cardTemplate .descriptionContainer span 
-    {
-        font-size: 1.0rem;
-    }
-    .cardTemplate .descriptionContainer img 
-    {
-        height:1rem;
-    }
 }
