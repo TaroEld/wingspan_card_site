@@ -1,4 +1,5 @@
 
+import { EffectTags } from "./Resources/Effect";
 const getBirdObject = function(_stats)
 {
     const statsObj = {
@@ -16,7 +17,7 @@ const getBirdObject = function(_stats)
         flavorText:         "",
         effectText :        "",
         effectType :        "None",
-        effectTag  :        "",
+        effectTag  :        "None",
         predator   :        false,
         flocking   :        false,
         bonusCard  :        false,
@@ -43,6 +44,12 @@ const getBirdObject = function(_stats)
         statsObj.habitat = statsObj.habitat.split(" ")
     if (statsObj.nestType.length > 0)
         statsObj.nestType = statsObj.nestType[0].toUpperCase() + statsObj.nestType.slice(1)
+    if (statsObj.predator)
+        statsObj.effectTag = EffectTags.Predator
+    if (statsObj.flocking)
+        statsObj.effectTag = EffectTags.Flocking
+    if (statsObj.bonusCard)
+        statsObj.effectTag = EffectTags.BonusCard
     return statsObj
 }
 
