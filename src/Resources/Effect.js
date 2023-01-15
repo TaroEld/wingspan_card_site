@@ -25,7 +25,7 @@ const EffectTags = {
     None :      "None",
     Predator :  "Predator",
     Flocking :  "Flocking",
-    Bonus_Card: "Bonus_Card"
+    BonusCard: "BonusCard"
 } 
 
 const EffectImageKeyWordMap = {
