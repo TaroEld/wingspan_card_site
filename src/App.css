@@ -14,7 +14,15 @@ body{
 .mainContent
 {
   width: 100%;
-  height: 100vh;
+  flex:1;
+}
+
+@media only screen and (max-width: 900px) {
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .genericTextColor {
