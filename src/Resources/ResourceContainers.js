@@ -10,7 +10,7 @@ const DescriptionContainer = (props) => {
         setEntryToggle(!entryToggle)
     }
     const reduceText = () => {
-        if ((entryToggle && props.effectText.length > 50) || (!entryToggle && props.flavorText.length > 50))
+        if ((entryToggle && props.effectText.length > 100) || (!entryToggle && props.flavorText.length > 100))
             return "reducetext"
         return ""
     }
