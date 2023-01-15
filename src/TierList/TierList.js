@@ -37,7 +37,7 @@ const TierList = ({birdNameList, expansionFilter}) => {
                 }
                 else
                 {
-                    if (expansionFilter === "All")
+                    if (expansionFilter !== "All")
                         return null
                     return (
                         <EmptyCardTemplate key={_name} className="small">
