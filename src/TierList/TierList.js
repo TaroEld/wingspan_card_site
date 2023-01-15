@@ -18,6 +18,7 @@ const TierList = ({birdNameList, expansionFilter}) => {
     }
     return (
         <InfiniteScroll
+            id = "tierList"
             className="tierList"
             loadMore={loading}
             hasMore={dataIdx < birdNameList.length}
