@@ -1,0 +1,12 @@
+.topBar
+{
+  width: 100%;
+  background: rgb(140, 145, 133);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+.topBar button{
+    width:10rem;
+    height:2rem;
+}

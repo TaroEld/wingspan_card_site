@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import './App.css';
-import SideBar from './SideBar';
+import TopBar from './TopBar';
 import CardCreatorScreen from './CardCreator/CardCreatorScreen.js';
 import TierListScreen from "./TierList/TierListScreen.js"
 import About from './About';
@@ -20,11 +20,11 @@ function App() {
   }
   return (
     <div className="App">
-      <SideBar>
+      <TopBar>
           <button disabled={activeButton === 0} onClick={() => onSideBarClicked(0)}>Card Creator</button>
           <button disabled={activeButton === 1} onClick={() => onSideBarClicked(1)}>Tier List</button>
           <button disabled={activeButton === 2} onClick={() => onSideBarClicked(2)}>About</button>
-      </SideBar>
+      </TopBar>
       <div className="mainContent">
         {content}
       </div>
