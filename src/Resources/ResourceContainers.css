@@ -12,11 +12,18 @@
     height: 4rem;
     font-size: large;
     font-weight: bold;
-    display:flex;
+    display: flex;
+    justify-content: start;
 }
 .vpContainer {
     font-size: 3em;
     font-weight: bold;
+}
+.vpContainer > span
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .vpImg{
     max-width: 100%;
@@ -80,8 +87,4 @@
 {
     min-height: 2rem;
     cursor: pointer;
-}
-.descriptionContainer > span
-{
-    font-size: 1.5em;
 }

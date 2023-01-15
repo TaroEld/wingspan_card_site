@@ -18,12 +18,23 @@
     color: black;
     font-size: 2em;
 }
+
 .cardTemplate.small
 {
     width: calc(25rem * 0.6);
     height: calc(40rem * 0.6);
-    font-size: 10px;
+    font-size: 8px;
 }
+
+@media only screen and (max-width: 900px) {
+
+    .cardTemplate {
+        width: calc(25rem * 0.6);
+        height: calc(40rem * 0.6);
+        font-size: 8px;
+    }
+}
+
 .cardTemplate > *
 {
     padding-left: 5px;
@@ -79,19 +90,6 @@
     cursor: pointer;
 } 
 
-/* .cardTemplate .descriptionContainer > span
-{
-    font-size: calc(1vh / 0.7vw);
-} */
-
-/* .cardTemplate .descriptionContainer.reducetext span
-{
-    font-size: 0.7rem !important;
-}
-.cardTemplate .descriptionContainer.reducetext img
-{
-    height: 0.7rem !important;
-} */
 .cardTemplate .birdImageContainer
 {
     grid-column: 2;
