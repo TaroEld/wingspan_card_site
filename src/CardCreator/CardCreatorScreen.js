@@ -3,12 +3,13 @@ import "./CardCreatorScreen.css"
 import CardTemplate from '../CardTemplate';
 import {birdlist} from "../birdlist_mini.js"
 import {FoodContainer} from "../Resources/ResourceContainers.js"
-import { EffectTypes } from "../Resources/Effect";
+import { EffectTypes, EffectTags } from "../Resources/Effect";
 import {NestTypes, FoodTypes, HabitatTypes, Nest, Food} from "../Resources/Resources.js"
 import getBirdObject from "../getBirdObject";
 
 function CardCreatorScreen(props) {
     const [name, setName] = useState("Name");
+    const [scientificName, setScientificName] = useState("Scientific Name");
     const [food, setFood] = useState([FoodTypes.Invertebrate, FoodTypes.Fish, FoodTypes.Fruit]);
     const [nestType, setNestType] = useState(NestTypes.Star);
     const [vpNum, setVpNum] = useState(10);
@@ -26,6 +27,7 @@ function CardCreatorScreen(props) {
 
     const setStateFromObject = _object => {
         setName(_object.name);
+        setScientificName(_object.scientificName);
         setFood(_object.food)
         setFoodSeparator(_object.foodSeparator)
         setHabitat(_object.habitat)
@@ -34,10 +36,9 @@ function CardCreatorScreen(props) {
         setEggNum(_object.eggNum)
         setWingspanNum(_object.wingspanNum)
         setEffectText(_object.effectText)
-        setFlavorText(_object.flavorText)
         setEffectType(_object.effectType)
+        setFlavorText(_object.flavorText)
     }
-
     const loadRandomBird = () => {
         const birdNames = Object.keys(birdlist);
         const randomName = birdNames[Math.floor(Math.random() * birdNames.length)];
@@ -48,6 +49,7 @@ function CardCreatorScreen(props) {
     const exportBird = () => {
         const birdObj = getBirdObject({
             name,
+            scientificName,
             effectType,
             effectText,
             vpNum,
@@ -92,14 +94,28 @@ function CardCreatorScreen(props) {
     return (
         <div className="cardCreatorScreen">
             <div className="cardTemplateContainer">
-                <CardTemplate food={food} foodSeparator={foodSeparator} habitat={habitat} name = {name} 
-                    effectText={effectText} effectType = {effectType} effectTag={effectTag}
-                    nestType={nestType} vpNum={vpNum} eggNum={eggNum} wingspanNum = {wingspanNum} flavorText={flavorText} />
+                <CardTemplate 
+                name            = {name}
+                scientificName  = {scientificName}
+                food            = {food}
+                foodSeparator   = {foodSeparator}
+                habitat         = {habitat}
+                vpNum           = {vpNum}
+                eggNum          = {eggNum}
+                nestType        = {nestType}
+                wingspanNum     = {wingspanNum}
+                effectText      = {effectText}
+                effectType      = {effectType}
+                effectTag       = {effectTag}
+                flavorText      = {flavorText}
+            />
             </div>
             <div className="cardSettingsContainer">
                 <div className="settingsOption">
                     <label htmlFor="birdName">Name: </label>
                     <input type="text" id ="birdName"  value={name} onChange={(_event) => {setName(_event.target.value)}}/>
+                    <label htmlFor="scientificName">Scientific Name: </label>
+                    <input type="text" id ="scientificName"  value={scientificName} onChange={(_event) => {setScientificName(_event.target.value)}}/>
                 </div>
                 <div className="settingsOption">
                     <label htmlFor="birdDescription">Description:</label>
