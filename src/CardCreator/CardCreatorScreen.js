@@ -6,22 +6,50 @@ import {FoodContainer} from "../Resources/ResourceContainers.js"
 import { EffectTypes, EffectTags } from "../Resources/Effect";
 import {NestTypes, FoodTypes, HabitatTypes, Nest, Food} from "../Resources/Resources.js"
 import getBirdObject from "../getBirdObject";
-
+import { useSearchParams } from "react-router-dom";
 function CardCreatorScreen(props) {
-    const [name, setName] = useState("Name");
-    const [scientificName, setScientificName] = useState("Scientific Name");
-    const [food, setFood] = useState([FoodTypes.Invertebrate, FoodTypes.Fish, FoodTypes.Fruit]);
-    const [nestType, setNestType] = useState(NestTypes.Star);
-    const [vpNum, setVpNum] = useState(10);
-    const [eggNum, setEggNum] = useState(6);
-    const [wingspanNum, setWingspanNum] = useState(100);
-    const [foodSeparator, setFoodSeparator] = useState("/");
-    const [habitat, setHabitat] = useState([HabitatTypes.Grassland, HabitatTypes.Wetland, HabitatTypes.Forest]);
+    const defaults = getBirdObject({
+        name            : "Name",
+        scientificName  : "Scientific Name", 
+        food            : [FoodTypes.Invertebrate, FoodTypes.Fish, FoodTypes.Fruit], 
+        nestType        : NestTypes.Star, 
+        vpNum           : 10, 
+        eggNum          : 6, 
+        wingspanNum     : 100, 
+        foodSeparator   : "/", 
+        habitat         : [HabitatTypes.Grassland, HabitatTypes.Wetland, HabitatTypes.Forest], 
+        effectText      : "fruit", 
+        effectType      : EffectTypes.Activated, 
+        effectTag       : "", 
+        flavorText      : "Flavor Text",   
+    })
 
-    const [effectText, setEffectText] = useState("fruit");
-    const [effectType, setEffectType] = useState(EffectTypes.Activated);
-    const [effectTag, setEffectTag] = useState("");
-    const [flavorText, setFlavorText] = useState("Flavor");
+    // Add a custom hook that initializes states with either search query param or default value,and updates search params
+    const [searchParams, setSearchParams] = useSearchParams();
+    function useSearchParamsState(_name)
+    {
+        const [state, setState] = useState(searchParams.get(_name) || defaults[_name])
+        function setSearchState(_value){
+            setState(_value)
+            searchParams.set(_name, _value)
+            setSearchParams(searchParams)
+        }
+        return [state, setSearchState];
+    }
+
+    const [name, setName] =                     useSearchParamsState("name")
+    const [scientificName, setScientificName] = useSearchParamsState("scientificName")
+    const [food, setFood] =                     useSearchParamsState("food")
+    const [nestType, setNestType] =             useSearchParamsState("nestType")
+    const [vpNum, setVpNum] =                   useSearchParamsState("vpNum")
+    const [eggNum, setEggNum] =                 useSearchParamsState("eggNum")
+    const [wingspanNum, setWingspanNum] =       useSearchParamsState("wingspanNum")
+    const [foodSeparator, setFoodSeparator] =   useSearchParamsState("foodSeparator")
+    const [habitat, setHabitat] =               useSearchParamsState("habitat")
+    const [effectText, setEffectText] =         useSearchParamsState("effectText")
+    const [effectType, setEffectType] =         useSearchParamsState("effectType")
+    const [effectTag, setEffectTag] =           useSearchParamsState("effectTag")
+    const [flavorText, setFlavorText] =         useSearchParamsState("flavorText")
 
     const [uploadedFile, setUploadedFile] = useState(null);
 
@@ -38,6 +66,14 @@ function CardCreatorScreen(props) {
         setEffectText(_object.effectText)
         setEffectType(_object.effectType)
         setFlavorText(_object.flavorText)
+    }
+    function handleAddFood(_food){
+        if (food.length < 3)
+            setFood([...food, _food])
+    }
+    function handleRemoveFood(){
+        if (food)
+            setFood(food.slice(0, -1))
     }
     const loadRandomBird = () => {
         const birdNames = Object.keys(birdlist);
@@ -81,16 +117,6 @@ function CardCreatorScreen(props) {
         }
         reader.readAsText(uploadedFile)
     }
-    const addFood = _food =>
-    {
-        if (food.length < 3)
-            setFood([...food, _food])
-    }
-    const removeFood = () => 
-    {
-        if (food)
-            setFood(food.slice(0, -1))
-    }
     return (
         <div className="cardCreatorScreen">
             <div className="cardTemplateContainer">
@@ -128,21 +154,28 @@ function CardCreatorScreen(props) {
                             })
                         }
                     </select>
+                    <label>Tag: </label>
+                    <select value={effectTag} name="Effect Tag" id="effectTag" onChange={_event => {setEffectTag(_event.target.value)}}>
+                        {
+                            Object.keys(EffectTags).map(_type => {
+                                return <option key={_type} value={_type}>{_type}</option>
+                            })
+                        }
+                    </select>
                 </div>
                 <div className="settingsOption">
                     <label>Food (Click to add)</label>
                     <div className="foodSelector">
                         {Object.keys(FoodTypes).map((_type) => {
-                            return <span key={_type} onClick={() => addFood(_type)}>
+                            return <span key={_type} onClick={() => handleAddFood(_type)}>
                                         <Food key={_type} Type={_type}/>
                                     </span>
                         })}
                     </div>
                     <label>Current food (Click to remove)</label>
-                    <div className="foodSelector" onClick={removeFood}>
+                    <div className="foodSelector" onClick={handleRemoveFood}>
                         <FoodContainer foodArray = {food} separator = {foodSeparator}/>
                     </div>
-                    <div className="food-separator">
                         <label htmlFor="food-separator">{foodSeparator === "/" ? 'Or ("/")' : 'And ("+")'}</label>
                         <input id="food-separator" type="checkbox" 
                             style={{width:"1.5rem", height:"1.5rem"}}

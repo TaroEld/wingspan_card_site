@@ -55,6 +55,8 @@ const NestContainer = (props) => {
     );
 };
 function HabitatContainer({habitatArray}) {
+    if (typeof habitatArray == "string")
+        habitatArray = habitatArray.split(",")
     const getHabitat = () => {
         let idx = 0;
         return habitatArray.map((_type) => {
@@ -68,6 +70,8 @@ function HabitatContainer({habitatArray}) {
     );
 }
 function FoodContainer({separator, foodArray}) {
+    if (typeof foodArray == "string")
+        foodArray = foodArray.split(",")
     const style= {
         width: "1rem",
         height: "1rem",
