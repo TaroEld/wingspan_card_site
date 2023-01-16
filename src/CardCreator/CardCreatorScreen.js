@@ -176,12 +176,11 @@ function CardCreatorScreen(props) {
                     <div className="foodSelector" onClick={handleRemoveFood}>
                         <FoodContainer foodArray = {food} separator = {foodSeparator}/>
                     </div>
-                        <label htmlFor="food-separator">{foodSeparator === "/" ? 'Or ("/")' : 'And ("+")'}</label>
-                        <input id="food-separator" type="checkbox" 
-                            style={{width:"1.5rem", height:"1.5rem"}}
-                            onClick = {() =>{foodSeparator === "/" ? setFoodSeparator("+") : setFoodSeparator("/")}}
-                        />
-                    </div>
+                    <label>Type: </label>
+                    <select value={foodSeparator} name="Food Separator" id="foodSeparator" onChange={_event => {setFoodSeparator(_event.target.value)}}>
+                        <option key={"+"} value={"+"}>And ("+")</option>
+                        <option key={"/"} value={"/"}>Or ("/")</option>
+                    </select>
                 </div>
                 <div className="settingsOption">
                     <label>Nest Type</label>
