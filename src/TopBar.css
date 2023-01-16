@@ -1,12 +1,18 @@
 .topBar
 {
   width: 100%;
+  height: 2rem;
   background: rgb(140, 145, 133);
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  gap: 5px;
+  flex-shrink: 0;
 }
-.topBar button{
-    width:10rem;
-    height:2rem;
+.topBar > *{
+  width:10rem;
+  height:90%;
+  background-color: white;
+  text-align: center;
+  border-radius: 3px;
 }
