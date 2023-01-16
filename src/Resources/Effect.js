@@ -1,5 +1,5 @@
 import React from 'react';
-import {NestTypes, FoodTypes, Card, Egg, Tuck, Predator, BonusCard, Food, Nest} from "./Resources.js"
+import {NestTypes, FoodTypes, Card, Egg, Tuck, Predator, BonusCard, Food, Nest, Die} from "./Resources.js"
 import "./Effect.css"
 
 const EffectTypes = {
@@ -33,6 +33,7 @@ const EffectImageKeyWordMap = {
     "egg" : Egg,
     "tuck" : Tuck,
     "predator" : Predator,
+    "die": Die
 }
 
 for (const [key] of Object.entries(FoodTypes)){
