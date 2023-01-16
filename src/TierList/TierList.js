@@ -5,6 +5,7 @@ import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import CardTemplate from '../CardTemplate'
 import EmptyCardTemplate from '../EmptyCardTemplate'
+import { missingBirds } from '../missingBirds'
 // const CardTemplate = lazy(() => import('../CardTemplate'))
 // const EmptyCardTemplate = lazy(() => import('../EmptyCardTemplate'))
 
@@ -16,6 +17,12 @@ const TierList = ({birdNameList, expansionFilter}) => {
         setDataIdx(newIdx)
         currentList = birdNameList.slice(0, newIdx)
     }
+    function getBird(_birdName)
+    {
+        if (!(_birdName in birdlist))
+            _birdName = missingBirds[_birdName]
+        return (_birdName in birdlist) ? birdlist[_birdName] : null
+    }
     return (
         <InfiniteScroll
             id = "tierList"
@@ -25,8 +32,8 @@ const TierList = ({birdNameList, expansionFilter}) => {
         >
         {
             currentList.map((_name) => {
-                const bird = birdlist[_name]
-                if (bird !== undefined)
+                const bird = getBird(_name)
+                if (bird !== null)
                 {
                     const birdObj = getBirdObject(bird)
                     if (expansionFilter !== "All" && birdObj.expansionSet !== expansionFilter)
