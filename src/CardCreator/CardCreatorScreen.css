@@ -1,7 +1,6 @@
 .cardCreatorScreen
 {
     display:flex;
-    width: 90vw;
 }
 @media only screen and (max-width: 900px) {
 
