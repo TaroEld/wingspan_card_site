@@ -28,7 +28,21 @@ function CardCreatorScreen(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     function useSearchParamsState(_name)
     {
-        const [state, setState] = useState(searchParams.get(_name) || defaults[_name])
+        let searchVal = searchParams.get(_name)
+        const defaultVal = defaults[_name]
+        // Parse string values though there's probably a better way
+        if (searchVal)
+        {
+            if (typeof defaultVal == "object" && Array.isArray(defaultVal) && typeof searchVal === "string")
+            {
+                searchVal = searchVal.split(",")
+            }
+            if (typeof defaultVal == "integer" && typeof searchVal === "string")
+            {
+                searchVal = parseInt(searchVal)
+            }
+        }
+        const [state, setState] = useState(searchVal || defaultVal)
         function setSearchState(_value){
             setState(_value)
             searchParams.set(_name, _value)
