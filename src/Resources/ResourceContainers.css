@@ -45,17 +45,17 @@
 {
     position: absolute;
 }
-.habitatImg:nth-child(1)
+.habitatContainer .habitatImg:nth-child(1)
 {
     top: 30%;
     left: 10%;
 }
-.habitatImg:nth-child(2)
+.habitatContainer .habitatImg:nth-child(2)
 {
     top: 30%;
     left: 50%;
 }
-.habitatImg:nth-child(3)
+.habitatContainer .habitatImg:nth-child(3)
 {
     left: 30%;
     top:3%;

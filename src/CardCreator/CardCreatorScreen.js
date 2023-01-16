@@ -2,9 +2,9 @@ import React, { useState} from "react";
 import "./CardCreatorScreen.css"
 import CardTemplate from '../CardTemplate';
 import {birdlist} from "../birdlist_mini.js"
-import {FoodContainer} from "../Resources/ResourceContainers.js"
+import {FoodContainer, HabitatContainer} from "../Resources/ResourceContainers.js"
 import { EffectTypes, EffectTags } from "../Resources/Effect";
-import {NestTypes, FoodTypes, HabitatTypes, Nest, Food} from "../Resources/Resources.js"
+import {NestTypes, FoodTypes, HabitatTypes, Nest, Food, Habitat} from "../Resources/Resources.js"
 import getBirdObject from "../getBirdObject";
 import { useSearchParams } from "react-router-dom";
 function CardCreatorScreen(props) {
@@ -74,6 +74,14 @@ function CardCreatorScreen(props) {
     function handleRemoveFood(){
         if (food)
             setFood(food.slice(0, -1))
+    }
+    function handleAddHabitat(_habitat){
+        if (habitat.length < 3 && !habitat.includes(_habitat))
+            setHabitat([...habitat, _habitat])
+    }
+    function handleRemoveHabitat(){
+        if (habitat)
+            setHabitat(habitat.slice(0, -1))
     }
     const loadRandomBird = () => {
         const birdNames = Object.keys(birdlist);
@@ -181,6 +189,20 @@ function CardCreatorScreen(props) {
                         <option key={"+"} value={"+"}>And ("+")</option>
                         <option key={"/"} value={"/"}>Or ("/")</option>
                     </select>
+                </div>
+                <div className="settingsOption">
+                    <label>Habitat (Click to add)</label>
+                    <div className="foodSelector" style={{display: "flex"}}>
+                        {Object.keys(HabitatTypes).map((_type) => {
+                            return (<span key={_type} onClick={() => handleAddHabitat(_type)}>
+                                        <Habitat key={_type} Type={_type}/>
+                                    </span>)
+                        })}
+                    </div>
+                    <label>Current habitat(s) (Click to remove)</label>
+                    <div className="foodSelector" onClick={handleRemoveHabitat}>
+                        <HabitatContainer habitatArray={habitat}/>
+                    </div>
                 </div>
                 <div className="settingsOption">
                     <label>Nest Type</label>
