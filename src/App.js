@@ -1,34 +1,36 @@
-import {useState} from 'react';
 import './App.css';
 import TopBar from './TopBar';
 import CardCreatorScreen from './CardCreator/CardCreatorScreen.js';
 import TierListScreen from "./TierList/TierListScreen.js"
 import About from './About';
+import { BrowserRouter,Routes, Route, Link, Outlet, Navigate } from 'react-router-dom';
 
-function App() {
-  const contentStates = [
-    CardCreatorScreen,
-    TierListScreen,
-    About
-  ]
-  const [activeButton, setActiveButton] = useState(0)
-  const [content, setContent] = useState(<CardCreatorScreen/>);
-  const onSideBarClicked = (_idx) => {
-    setActiveButton(_idx)
-    const CurrentContent = contentStates[_idx]
-    setContent(<CurrentContent/>)
-  }
+const Layout = (props) =>
+{
   return (
     <div className="App">
       <TopBar>
-          <button disabled={activeButton === 0} onClick={() => onSideBarClicked(0)}>Card Creator</button>
-          <button disabled={activeButton === 1} onClick={() => onSideBarClicked(1)}>Tier List</button>
-          <button disabled={activeButton === 2} onClick={() => onSideBarClicked(2)}>About</button>
+          <Link to="creator">Card Creator</Link>
+          <Link to="tierlists">Tier List</Link>
+          <Link to="about">About</Link>
       </TopBar>
-      <div className="mainContent">
-        {content}
-      </div>
-    </div>
+      <Outlet className="App mainContent"/>
+  </div>
+  )
+}
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="creator"/>}/>
+          <Route path="creator" element={<CardCreatorScreen />} />
+          <Route path="tierlists" element={<TierListScreen />} />
+          <Route path="about" element={<About />} />
+        </Route>
+        
+      </Routes>
+    </BrowserRouter>
   );
 }
 
