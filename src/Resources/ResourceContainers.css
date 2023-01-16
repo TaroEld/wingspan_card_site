@@ -13,7 +13,7 @@
     font-size: large;
     font-weight: bold;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 .vpContainer {
     font-size: 3em;
