@@ -8,7 +8,6 @@ import {NestTypes, FoodTypes, HabitatTypes, Nest, Food, Habitat} from "../Resour
 import getBirdObject from "../getBirdObject";
 import { useSearchParams } from "react-router-dom";
 function CardCreatorScreen(props) {
-    useEffect(() => props.setActiveRouteButton("CardCreatorScreen"))
     const defaults = getBirdObject({
         name            : "Name",
         scientificName  : "Scientific Name", 

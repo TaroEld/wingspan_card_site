@@ -4,7 +4,6 @@ import {tierLists} from "../tierlists.js"
 import TierList from './TierList.js';
 
 function TierListScreen(props) {
-    useEffect(() => props.setActiveRouteButton("TierListScreen"))
     const [currentIdx, setCurrentIdx] = useState(0)
     const [expansionFilter, setExpansionFilter] = useState("All")
     const getCurrentList = () => {
