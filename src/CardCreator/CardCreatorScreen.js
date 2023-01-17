@@ -263,12 +263,12 @@ function CardCreatorScreen(props) {
                     <button id="load-random-bird" className="loadRandomBird" onClick = {loadRandomBird}>Random</button>
                 </div>
                 <div className="settingsOption">
-                    <label htmlFor="export-button">Export as JSON file: </label>
-                    <button id="export-button" className="exportButton" onClick = {exportBird}>Export</button>
-                </div>
-                <div className="settingsOption">
                     <label htmlFor="export-image-button">Export as png file: </label>
                     <button id="export-image-button" className="exportButton" onClick = {exportBirdAsImage}>Export</button>
+                </div>
+                <div className="settingsOption">
+                    <label htmlFor="export-button">Export as JSON file: </label>
+                    <button id="export-button" className="exportButton" onClick = {exportBird}>Export</button>
                 </div>
                 <div className="settingsOption">
                     <div>
