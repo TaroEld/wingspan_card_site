@@ -19,6 +19,7 @@ import EggImg from "../assets/gfx/egg.png";
 import DieImg from "../assets/gfx/die.png";
 import TuckImg from "../assets/gfx/tuck.png"
 import PredatorImg from "../assets/gfx/predator.png";
+import BonusCardImg from "../assets/gfx/bonus-card.png";
 import WingspanImg from "../assets/gfx/wingspan.png";
 import VPImg from "../assets/gfx/point.png";
 
@@ -124,7 +125,7 @@ const Predator = () => {
 const BonusCard = () => {   
     return (
         <div className="bonusCardImg">
-            <img className="containImage" src={PredatorImg} alt="bonus card"/>
+            <img className="containImage" src={BonusCardImg} alt="bonus card"/>
         </div>
     );
 }

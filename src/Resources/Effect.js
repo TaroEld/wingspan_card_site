@@ -33,7 +33,8 @@ const EffectImageKeyWordMap = {
     "egg" : Egg,
     "tuck" : Tuck,
     "predator" : Predator,
-    "die": Die
+    "die": Die,
+    "bonuscard": BonusCard
 }
 
 for (const [key] of Object.entries(FoodTypes)){
