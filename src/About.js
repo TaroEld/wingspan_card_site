@@ -11,7 +11,7 @@ const About = (props) => {
                 <ul>
                     <li>Bird Image upload</li>
                     <li>Download card as image</li>
-                    <li>Missing attributes (Scientific name, Effect prefixes [Predator, Bonus Card, Flocking], Expansion indicator) </li>
+                    <li>Missing attributes (Expansion indicator) </li>
                 </ul>
             </div>
         </div>
