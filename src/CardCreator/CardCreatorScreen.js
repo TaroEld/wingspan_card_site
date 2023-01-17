@@ -7,6 +7,7 @@ import { EffectTypes, EffectTags } from "../Resources/Effect";
 import {NestTypes, FoodTypes, HabitatTypes, Nest, Food, Habitat} from "../Resources/Resources.js"
 import getBirdObject from "../getBirdObject";
 import { useSearchParams } from "react-router-dom";
+import domtoimage from 'dom-to-image';
 function CardCreatorScreen(props) {
     const defaults = getBirdObject({
         name            : "Name",
@@ -121,11 +122,23 @@ function CardCreatorScreen(props) {
         const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
             JSON.stringify(birdObj)
           )}`;
-          const link = document.createElement("a");
-          link.href = jsonString;
-          link.download = `${name}.json`;
-      
-          link.click();
+        const link = document.createElement("a");
+        link.href = jsonString;
+        link.download = `${name}.json`;
+    
+        link.click();
+    }
+
+    function exportBirdAsImage()
+    {
+        var node = document.getElementsByClassName('cardTemplateContainer')[0].children[0];
+        domtoimage.toPng(node)
+            .then(function (dataUrl) {
+                const link = document.createElement("a");
+                link.href = dataUrl;
+                link.download = `${name}.png`;
+                link.click();
+            })
     }
 
     const importBird = () =>
@@ -143,6 +156,7 @@ function CardCreatorScreen(props) {
         <div className="cardCreatorScreen">
             <div className="cardTemplateContainer">
                 <CardTemplate 
+                id = "cardCreatorScreenTemplate"
                 name            = {name}
                 scientificName  = {scientificName}
                 food            = {food}
@@ -249,6 +263,10 @@ function CardCreatorScreen(props) {
                 <div className="settingsOption">
                     <label htmlFor="export-button">Export as JSON file: </label>
                     <button id="export-button" className="exportButton" onClick = {exportBird}>Export</button>
+                </div>
+                <div className="settingsOption">
+                    <label htmlFor="export-image-button">Export as png file: </label>
+                    <button id="export-image-button" className="exportButton" onClick = {exportBirdAsImage}>Export</button>
                 </div>
                 <div className="settingsOption">
                     <div>
