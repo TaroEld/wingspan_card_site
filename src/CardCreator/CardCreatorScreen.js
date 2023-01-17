@@ -38,7 +38,7 @@ function CardCreatorScreen(props) {
             {
                 searchVal = searchVal.split(",")
             }
-            if (typeof defaultVal == "integer" && typeof searchVal === "string")
+            if (typeof defaultVal == "number" && typeof searchVal === "string")
             {
                 searchVal = parseInt(searchVal)
             }
