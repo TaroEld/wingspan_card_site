@@ -80,6 +80,7 @@ function CardCreatorScreen(props) {
         setWingspanNum(_object.wingspanNum)
         setEffectText(_object.effectText)
         setEffectType(_object.effectType)
+        setEffectTag(_object.effectTag)
         setFlavorText(_object.flavorText)
     }
     function handleAddFood(_food){
@@ -111,6 +112,7 @@ function CardCreatorScreen(props) {
             scientificName,
             effectType,
             effectText,
+            effectTag,
             vpNum,
             habitat,
             food,
