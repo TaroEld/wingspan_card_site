@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const About = () => {
+const About = (props) => {
+    useEffect(() => props.setActiveRouteButton("About"))
     return (
         <div className="aboutScreen">
             <div>This is a site dedicated to the great boardgame <a href ="https://stonemaiergames.com/games/wingspan/">Wingspan</a> by Stonemayer Games. It's a bit of a learning exercise, so bear with me.</div>

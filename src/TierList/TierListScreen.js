@@ -1,9 +1,10 @@
-import {React, useState} from 'react';
+import {React, useEffect, useState} from 'react';
 import "./TierListScreen.css"
 import {tierLists} from "../tierlists.js"
 import TierList from './TierList.js';
 
-function TierListScreen() {
+function TierListScreen(props) {
+    useEffect(() => props.setActiveRouteButton("TierListScreen"))
     const [currentIdx, setCurrentIdx] = useState(0)
     const [expansionFilter, setExpansionFilter] = useState("All")
     const getCurrentList = () => {
