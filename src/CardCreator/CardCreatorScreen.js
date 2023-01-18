@@ -263,19 +263,19 @@ function CardCreatorScreen(props) {
                     <button id="load-random-bird" className="loadRandomBird" onClick = {loadRandomBird}>Random</button>
                 </div>
                 <div className="settingsOption">
-                    <label htmlFor="export-image-button">Export as png file: </label>
-                    <button id="export-image-button" className="exportButton" onClick = {exportBirdAsImage}>Export</button>
+                    <label htmlFor="export-image-button">Download as png file: </label>
+                    <button id="export-image-button" className="exportButton" onClick = {exportBirdAsImage}>Download</button>
                 </div>
                 <div className="settingsOption">
-                    <label htmlFor="export-button">Export as JSON file: </label>
-                    <button id="export-button" className="exportButton" onClick = {exportBird}>Export</button>
+                    <label htmlFor="export-button">Download as JSON file: </label>
+                    <button id="export-button" className="exportButton" onClick = {exportBird}>Download</button>
                 </div>
                 <div className="settingsOption">
                     <div>
                         <label htmlFor="import-button">Load JSON: </label>
                         <input type="file" accept=".json" className="exportInput" onChange = {_event => setUploadedFile(_event.target.files[0])}/>
                     </div>
-                    <button id="import-button" className="importButton" onClick = {importBird}>Import</button>
+                    <button id="import-button" className="importButton" disabled={uploadedFile===null} onClick = {importBird}>Import</button>
                 </div>
             </div>
         </div>
