@@ -1,4 +1,4 @@
-import {React, useEffect, useState} from 'react';
+import {React, useState} from 'react';
 import "./TierListScreen.css"
 import {tierLists} from "../tierlists.js"
 import TierList from './TierList.js';
