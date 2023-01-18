@@ -6,8 +6,16 @@ import TierList from './TierList.js';
 function TierListScreen(props) {
     const [currentIdx, setCurrentIdx] = useState(0)
     const [expansionFilter, setExpansionFilter] = useState("All")
+    const [displayType, setDisplayType] = useState("Card")
+    const tierListNames = [
+        "God Tier",
+        "Tier 0",
+        "Tier 1",
+        "Tier 2", 
+        "Underused Tier",
+    ]
     const getCurrentList = () => {
-        return (<TierList key={currentIdx} birdNameList = {tierLists[currentIdx]} expansionFilter = {expansionFilter}/>)
+        return (<TierList key={currentIdx} birdNameList = {tierLists[currentIdx]} expansionFilter = {expansionFilter} displayType={displayType}/>)
     }
     return (
         <div id="tierListScreen">
@@ -29,11 +37,18 @@ function TierListScreen(props) {
                         <option value="asia">Asia</option>
                     </select>
                 </div>
+                <div className="settingsOption">
+                    <label htmlFor="cardOrTable">Display type: </label>
+                    <select value={displayType} onChange={_event => setDisplayType( _event.target.value)} name = "Card/Table" id="cardOrTable">
+                        <option value="Card">Card</option>
+                        <option value="Table">Table</option>
+                    </select>
+                </div>
             </div>
             <div className="headerButtonBar">
                 {
                     tierLists.map((_entry, idx) => {
-                        return <button key={idx} onClick={() => setCurrentIdx(idx)}>List: {idx}</button>
+                        return <button key={idx} onClick={() => setCurrentIdx(idx)}>{tierListNames[idx]}</button>
                     })
                 }
             </div>

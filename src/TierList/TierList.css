@@ -17,3 +17,38 @@
     overflow: auto;
     gap: 5px;
 }
+.tierList table
+{
+    overflow: hidden;
+}
+
+.tierList tr
+{
+    background: rgba(0,0,0,0.3);
+}
+.tierList table td 
+{
+    font-size: 1em;
+}
+.tierList table .nestImg 
+{
+    width: 2rem;
+}
+
+@media only screen and (max-width: 900px) {
+    .tierList table .foodContainer
+    {
+        display:block;
+        min-width:auto;
+        height:auto;
+    }
+    .tierList table .habitatContainer
+    {
+        width:auto;
+        height:auto;
+    }
+    .tierList table .habitatContainer > *
+    {
+        position:static;
+    }
+}
