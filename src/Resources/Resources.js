@@ -68,77 +68,77 @@ const HabitatImages = {
 }
 const Nest = ({Type}) => {
     return (
-        <div className="nestImg">
+        <div className="nestImg noSelect">
             <img className="containImage" src={NestImages[Type]} alt={Type}/>
         </div>
     );
 }
 const Food = ({Type}) => {
      return (
-        <div className={"foodImg"}>
+        <div className="foodImg noSelect">
             <img className="containImage" src={FoodImages[Type]} alt={Type}/>
         </div>
     );
 }
 const Card = () => {
     return (
-        <div className="cardImg">
+        <div className="cardImg noSelect">
             <img className="containImage" src={CardImg} alt="card"/>
         </div>
     );
 };
 const Egg = () => {
     return (
-        <div className="eggImg">
+        <div className="eggImg noSelect">
             <img className="containImage" src={EggImg} alt="egg"/>
         </div>
     );
 };
 const Die = () => {
     return (
-        <div className="dieImg">
+        <div className="dieImg noSelect">
             <img className="containImage" src={DieImg} alt="die"/>
         </div>
     );
 };
 const Habitat = ({Type}) => {
     return (
-        <div className="habitatImg">
+        <div className="habitatImg noSelect">
             <img className="containImage" src={HabitatImages[Type]} alt={Type}/>
         </div>
     );
 }
 const Tuck = () => {
     return (
-        <div className="tuckImg">
+        <div className="tuckImg noSelect">
             <img className="containImage" src={TuckImg} alt="tuck"/>
         </div>
     );
 }
 const Predator = () => {
     return (
-        <div className="predatorImg">
+        <div className="predatorImg noSelect">
             <img className="containImage" src={PredatorImg} alt="predator"/>
         </div>
     );
 }
 const BonusCard = () => {   
     return (
-        <div className="bonusCardImg">
+        <div className="bonusCardImg noSelect">
             <img className="containImage" src={BonusCardImg} alt="bonus card"/>
         </div>
     );
 }
 const Wingspan = () => {
     return (
-        <div className="wingspanImg">
+        <div className="wingspanImg noSelect">
             <img className="containImage" src={WingspanImg} alt="wingspan"/>
         </div>
     );
 };
 const VP = () => {
     return (
-        <div className="vpImg">
+        <div className="vpImg noSelect">
             <img className="containImage" src={VPImg} alt="victory points"/>
         </div>
     );

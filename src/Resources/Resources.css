@@ -18,6 +18,13 @@
 {
     width: 1.5rem;
     height: 1.5rem;
+}
+
+.noSelect
+{
+    user-select: none;
+}
+
 .vpImg
 {
     height: 100%;
