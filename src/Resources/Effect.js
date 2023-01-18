@@ -31,7 +31,6 @@ const EffectTags = {
 const EffectImageKeyWordMap = {
     "card" : Card,
     "egg" : Egg,
-    "tuck" : Tuck,
     "predator" : Predator,
     "die": Die,
     "bonuscard": BonusCard
@@ -80,7 +79,7 @@ function Effect(props) {
     const composeDescription = (_text) => {
         if (_text === null)
             return null
-        // This function goes over the text by splitting it into individual works based on spaces, then returns an array of either text spans, or image elements
+        // This function goes over the text by splitting it into individual words based on spaces, then returns an array of either text spans, or image elements
 
         // Effect types are frequently referred to by color
         const type = translateColorType(props.type)
