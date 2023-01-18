@@ -13,10 +13,10 @@
     max-height: 1.5em;
 }
 
-.effect span {
-    font-size: 1.5em;
+.effect .noSelect
+{
+    user-select: all;
 }
-
 .effect.Activated
 {
     background-color: #6C490F; 
