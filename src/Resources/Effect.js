@@ -1,5 +1,5 @@
 import React from 'react';
-import {NestTypes, FoodTypes, Card, Egg, Tuck, Predator, BonusCard, Food, Nest, Die} from "./Resources.js"
+import {NestTypes, FoodTypes, HabitatTypes, Card, Egg, Tuck, Predator, BonusCard, Food, Nest, Die, Habitat} from "./Resources.js"
 import "./Effect.css"
 
 const EffectTypes = {
@@ -41,6 +41,9 @@ for (const [key] of Object.entries(FoodTypes)){
 }
 for (const [key] of Object.entries(NestTypes)){
     EffectImageKeyWordMap[`${key.toLowerCase()}`] = Nest
+}
+for (const [key] of Object.entries(HabitatTypes)){
+    EffectImageKeyWordMap[`${key.toLowerCase()}`] = Habitat
 }
 
 const GenericSpan = () => {
@@ -93,7 +96,8 @@ function Effect(props) {
         let subText = "";
         for(let i = 0; i < textFragments.length; i++)
         {
-            if (textFragments[i] in EffectImageKeyWordMap)
+            const asLower = textFragments[i].toLowerCase();
+            if (asLower in EffectImageKeyWordMap)
             {
                 if (subText !== "")
                 {
@@ -102,12 +106,12 @@ function Effect(props) {
                 }
                 // Create element based on the type map
                 // As some elements require a type, createElement with passed prop is used
-                const ImageType = EffectImageKeyWordMap[textFragments[i]]
-                const typeCapitalized = textFragments[i][0].toUpperCase() + textFragments[i].slice(1)
+                const ImageType = EffectImageKeyWordMap[asLower]
+                const typeCapitalized = asLower[0].toUpperCase() + asLower.slice(1)
                 const props = {
                     key : textFragments[i] + i
                 }
-                if (ImageType === Food || ImageType === Nest)
+                if (ImageType === Food || ImageType === Nest || ImageType === Habitat)
                     props.Type = typeCapitalized
                 const Element = React.createElement(
                     ImageType,

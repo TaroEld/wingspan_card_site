@@ -19,7 +19,7 @@ function CardCreatorScreen(props) {
         wingspanNum     : 100, 
         foodSeparator   : "/", 
         habitat         : [HabitatTypes.Grassland, HabitatTypes.Wetland, HabitatTypes.Forest], 
-        effectText      : "fruit", 
+        effectText      : "fruit card egg predator die bonuscard Invertebrate Wild Rodent Nectar Seed Fruit Fish Forest Grassland Wetland", 
         effectType      : EffectTypes.Activated, 
         effectTag       : "", 
         flavorText      : "Flavor Text",   
